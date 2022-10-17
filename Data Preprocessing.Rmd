@@ -1,6 +1,6 @@
 ---
 title: "Data Preprocessing"
-output: html_document
+output: md_document
 ---
 
 ## Import Libraries
