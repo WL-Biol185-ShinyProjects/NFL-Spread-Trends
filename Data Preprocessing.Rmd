@@ -3,23 +3,30 @@ title: "Data Preprocessing"
 output: html_document
 ---
 
+## Import Libraries
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
 library(tidyverse)
 ```
 
 ##Import CSV file
-
 ```{r cars}
-spread_df = read.csv('NFL_Spread_Data.csv')
+nfl_df = read.csv('NFL_Spread_Data.csv')
+
+nfl_df
 ```
-
-## Including Plots
-
-You can also embed plots, for example:
-
+## Create New Dataframe Containing only games afte 1999
 ```{r pressure, echo=FALSE}
-plot(pressure)
+spread_df = filter(nfl_df, schedule_season > 1999)
+
+spread_df
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## Remove unnecessary columns
+```{r pressure, echo=FALSE}
+spread_df %>%
+  select(c(5:10))
+
+  
+```
