@@ -4,7 +4,8 @@ library(shiny)
 fluidPage(
   
   # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  titlePanel("NFL Favorite vs Spread
+             "),
   
   sales = read.csv("Sales_Sample.csv", header = TRUE,  sep = ",")
   
