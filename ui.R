@@ -7,13 +7,6 @@ fluidPage(
   titlePanel("NFL Favorite vs Spread
              "),
   
-  sales = read.csv("Sales_Sample.csv", header = TRUE,  sep = ",")
-  
-  #Summarize Data and then Plot
-  data <- reactive({
-    req(input$sel_SalesRep)
-    df <- sales %>% filter(SalesRep %in% input$sel_SalesRep) %>%  group_by(QTR) %>% summarise(Sales = sum(Sales))
-  })
   
   #Update SelectInput Dynamically
   observe({
