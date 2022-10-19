@@ -4,21 +4,21 @@ library(shiny)
 fluidPage(
   
   # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  titlePanel("NFL Favorite vs Spread
+             "),
   
-  # Sidebar with a slider input for number of bins 
-  sidebarLayout(
-    sidebarPanel(
-      sliderInput("bins",
-                  "Number of bins:",
-                  min = 1,
-                  max = 50,
-                  value = 30)
-    ),
-    
-    # Show a plot of the generated distribution
-    mainPanel(
-      plotOutput("distPlot")
-    )
+  
+  #Update SelectInput Dynamically
+  observe({
+    updateSelectInput(session, "sel_NFL_Team", choices = sales$SalesRep)
+  })
+  
+  
+  ui <- basicPage(
+    h1("NFL team"),
+    selectInput(inputId = "sel_SalesRep",
+                label = "Choose NFL Team",
+                "Names")
   )
-)
+  
+  shinyApp(ui = ui, server = server)
