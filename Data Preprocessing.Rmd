@@ -25,8 +25,33 @@ spread_df
 
 ## Remove unnecessary columns
 ```{r pressure, echo=FALSE}
-spread_df %>%
-  select(c(5:10))
+spread_df = select(spread_df, c(5:10))
+```
+## Replace team names that have switched cities or names since 2000
+```{r pressure, echo=FALSE}
+spread_df$team_home[spread_df$team_home == "Oakland Raiders"] <- "Las Vegas Raiders"
+spread_df$team_home[spread_df$team_home == "Washington Redskins"] <- "Washington Commanders"
+spread_df$team_home[spread_df$team_home == "Washington Football Team"] <- "Washington Commanders"
+spread_df$team_home[spread_df$team_home == "St. Louis Rams"] <- "Los Angeles Rams"
+spread_df$team_home[spread_df$team_home == "San Diego Chargers"] <- "Los Angeles Chargers"
 
-  
+spread_df$team_away[spread_df$team_away == "Oakland Raiders"] <- "Las Vegas Raiders"
+spread_df$team_away[spread_df$team_away == "Washington Redskins"] <- "Washington Commanders"
+spread_df$team_away[spread_df$team_away == "Washington Football Team"] <- "Washington Commanders"
+spread_df$team_away[spread_df$team_away == "St. Louis Rams"] <- "Los Angeles Rams"
+spread_df$team_away[spread_df$team_away == "San Diego Chargers"] <- "Los Angeles Chargers"
+```
+
+## Replace team favorite ids with team names
+```{r pressure, echo=FALSE}
+team_names = unique(spread_df$team_home)
+team_names = append(team_names, "None")
+
+team_ids = c("ATL", "BUF", "CLE", "DAL", "GB", "KC", "MIA", "MIN", "NE", "NO", "NYG", "LV", "PIT", "WAS", "LAR", "ARI", "BAL", "CIN", "DEN", "DET", "IND", "PHI", "LAC", "SF", "SEA", "TB", "TEN", "NYJ", "CAR", "CHI", "JAX", "HOU", "PICK")
+
+names(team_names) = team_ids
+
+spread_df$team_favorite_id = team_names[spread_df$team_favorite_id]
+
+spread_df
 ```
