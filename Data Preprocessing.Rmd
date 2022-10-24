@@ -102,5 +102,21 @@ spread_df
 spread_df = spread_df[, c(1, 7, 9, 4, 8,10)]
 
 spread_df
+```
 
+## use rbind to condense dataframe into 3 columns 
+```{r pressure, echo=FALSE}
+home_df = spread_df[, c(1:3)]
+away_df = spread_df[, c(4:6)]
+
+away_df_renamed = setNames(away_df, names(home_df))
+
+tidy_df = rbind(home_df, away_df_renamed)
+
+tidy_df = tidy_df %>%
+  rename("team" = "team_home",
+         "difference" = "diff_home",
+         "spread" = "spread_home")
+
+tidy_df
 ```
