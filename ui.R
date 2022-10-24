@@ -10,13 +10,13 @@ fluidPage(
   
   #Update SelectInput Dynamically
   observe({
-    updateSelectInput(session, "sel_NFL_Team", choices = sales$SalesRep)
+    updateSelectInput(session, "sel_NFL_Team", choices = spread_df$team1)
   })
   
   
   ui <- basicPage(
     h1("NFL team"),
-    selectInput(inputId = "sel_SalesRep",
+    selectInput(inputId = "sel_NFL_Team",
                 label = "Choose NFL Team",
                 "Names")
   )
