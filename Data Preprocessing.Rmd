@@ -55,3 +55,54 @@ spread_df$team_favorite_id = team_names[spread_df$team_favorite_id]
 
 spread_df
 ```
+
+## Create difference columns that subtracts score home and score away based on the favorite
+```{r pressure, echo=FALSE}
+spread_df = na.omit(spread_df)
+
+spread_df$diff_home[spread_df$team_home == spread_df$team_favorite_id] = spread_df$score_home[spread_df$team_home == spread_df$team_favorite_id] - spread_df$score_away[spread_df$team_home == spread_df$team_favorite_id]
+
+spread_df$diff_home[spread_df$team_away == spread_df$team_favorite_id] = spread_df$score_home[spread_df$team_away == spread_df$team_favorite_id] - spread_df$score_away[spread_df$team_away == spread_df$team_favorite_id]
+
+spread_df$diff_away[spread_df$team_away == spread_df$team_favorite_id] = spread_df$score_away[spread_df$team_away == spread_df$team_favorite_id] - spread_df$score_home[spread_df$team_away == spread_df$team_favorite_id]
+
+spread_df$diff_away[spread_df$team_home == spread_df$team_favorite_id] = spread_df$score_away[spread_df$team_home == spread_df$team_favorite_id] - spread_df$score_home[spread_df$team_home == spread_df$team_favorite_id]
+
+spread_df
+```
+
+## Alter diff columns to take spread into account
+```{r pressure, echo=FALSE}
+spread_df$diff_home[spread_df$team_home == spread_df$team_favorite_id] = spread_df$diff_home[spread_df$team_home == spread_df$team_favorite_id] + spread_df$spread_favorite[spread_df$team_home == spread_df$team_favorite_id]
+
+spread_df$diff_home[spread_df$team_away == spread_df$team_favorite_id] = spread_df$diff_home[spread_df$team_away == spread_df$team_favorite_id] - spread_df$spread_favorite[spread_df$team_away == spread_df$team_favorite_id]
+
+spread_df$diff_away[spread_df$team_away == spread_df$team_favorite_id] = spread_df$diff_away[spread_df$team_away == spread_df$team_favorite_id] + spread_df$spread_favorite[spread_df$team_away == spread_df$team_favorite_id]
+
+spread_df$diff_away[spread_df$team_home == spread_df$team_favorite_id] = spread_df$diff_away[spread_df$team_home == spread_df$team_favorite_id] - spread_df$spread_favorite[spread_df$team_home == spread_df$team_favorite_id]
+
+spread_df
+```
+
+
+## Create home and away spread value columns
+```{r pressure, echo=FALSE}
+spread_df$spread_home[spread_df$team_home == spread_df$team_favorite_id] = spread_df$spread_favorite[spread_df$team_home == spread_df$team_favorite_id]
+spread_df$spread_away[spread_df$team_away == spread_df$team_favorite_id] = spread_df$spread_favorite[spread_df$team_away == spread_df$team_favorite_id]
+
+spread_df$spread_home[spread_df$team_away == spread_df$team_favorite_id] = spread_df$spread_favorite[spread_df$team_away == spread_df$team_favorite_id]*-1
+spread_df$spread_away[spread_df$team_home == spread_df$team_favorite_id] = spread_df$spread_favorite[spread_df$team_home == spread_df$team_favorite_id]*-1
+
+spread_df
+```
+
+
+## Create home and away spread value columns
+```{r pressure, echo=FALSE}
+#spread_df$spread_home[spread_df$team_home == spread_df$team_favorite_id] = spread_df$spread_favorite[spread_df$team_home == spread_df$team_favorite_id]
+#spread_df$spread_away[spread_df$team_away == spread_df$team_favorite_id] = spread_df$spread_favorite[spread_df$team_away == spread_df$team_favorite_id]
+
+#spread_df$spread_home[spread_df$team_away == spread_df$team_favorite_id] = spread_df$spread_favorite[spread_df$team_away == spread_df$team_favorite_id]*-1
+#spread_df$spread_away[spread_df$team_home == spread_df$team_favorite_id] = spread_df$spread_favorite[spread_df$team_home == spread_df$team_favorite_id]*-1
+
+#spread_df
