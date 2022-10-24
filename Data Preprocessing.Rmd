@@ -120,3 +120,8 @@ tidy_df = tidy_df %>%
 
 tidy_df
 ```
+
+## export csv
+```{r pressure, echo=FALSE}
+write.csv(tidy_df, "tidy_df.csv", row.names = FALSE)
+```
