@@ -97,12 +97,10 @@ spread_df
 ```
 
 
-## Create home and away spread value columns
+## Select only important columns so that we can use rbind 
 ```{r pressure, echo=FALSE}
-#spread_df$spread_home[spread_df$team_home == spread_df$team_favorite_id] = spread_df$spread_favorite[spread_df$team_home == spread_df$team_favorite_id]
-#spread_df$spread_away[spread_df$team_away == spread_df$team_favorite_id] = spread_df$spread_favorite[spread_df$team_away == spread_df$team_favorite_id]
+spread_df = spread_df[, c(1, 7, 9, 4, 8,10)]
 
-#spread_df$spread_home[spread_df$team_away == spread_df$team_favorite_id] = spread_df$spread_favorite[spread_df$team_away == spread_df$team_favorite_id]*-1
-#spread_df$spread_away[spread_df$team_home == spread_df$team_favorite_id] = spread_df$spread_favorite[spread_df$team_home == spread_df$team_favorite_id]*-1
+spread_df
 
-#spread_df
+```
