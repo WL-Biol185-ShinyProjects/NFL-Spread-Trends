@@ -2,22 +2,17 @@
   library(dplyr)
   library(ggplot2)
   
-  server <- function(input, output, session) {
-    
-    sales = read.csv("NFL_Spread_Data.csv", header = TRUE,  sep = ",")
-    }
-    
-    #Update SelectInput Dynamically
-    observe({
-      updateSelectInput(session,"sel_NFL_Team", choices = spread_df$team1)
-    })
-    
-  
-  ui <- basicPage(
-      h1("NFL team"),
-      selectInput(inputId = "sel_NFL_Team",
-                  label = "Choose NFL Team",
-                  "Names")
+    ui <- fluidPage(
+      titlePanel("NFL team spead odds"),
+      selectInput("sel_team",
+                  label = "Choose an NFL Team",
+                  choices = list(unique(df$team))),
+      selectInput("sel_spread",
+                  label = "Choose a spread",
+                  choices = c = ("<-12", "-12 =< x < -9", "-9 =< x < -6","-6 =< x < -3", "-3 =< x < 0", "0", "0 < x < 3", "3 =< x < 6", "6 =< x < 9", "9 =< x =< 12", ">12")
+      textOutput("win_loss")
+      
     )
+  
   
   shinyApp(ui = ui, server = server)
