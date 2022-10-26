@@ -8,7 +8,6 @@
 "Miami Dolphins",21,-2
 "Minnesota Vikings",-1.5,-4.5
 "New England Patriots",-2,3
-"New Orleans Saints",NA,NA
 "New York Giants",-1.5,-6.5
 "Pittsburgh Steelers",-13.5,2.5
 "Washington Commanders",-7.5,-10.5
@@ -88,7 +87,6 @@
 "Green Bay Packers",-1.5,-4.5
 "Kansas City Chiefs",-6,-3
 "New England Patriots",-20,-3
-"New Orleans Saints",NA,NA
 "New York Giants",1,-4
 "Pittsburgh Steelers",6.5,-8.5
 "Seattle Seahawks",-7.5,5.5
@@ -177,15 +175,12 @@
 "Los Angeles Rams",-20.5,-13.5
 "Tampa Bay Buccaneers",10,-4
 "Washington Commanders",-10,-7
-"Carolina Panthers",NA,NA
 "Minnesota Vikings",-2,-9
-"Atlanta Falcons",NA,NA
 "Buffalo Bills",-30.5,-3.5
 "Carolina Panthers",21,8
 "Chicago Bears",-19.5,2.5
 "Cincinnati Bengals",7,-4
 "Jacksonville Jaguars",33.5,-14.5
-"New Orleans Saints",NA,NA
 "New York Jets",7.5,-2.5
 "Philadelphia Eagles",1,3
 "Los Angeles Chargers",-25.5,2.5
@@ -245,7 +240,6 @@
 "Baltimore Ravens",24,-3
 "Baltimore Ravens",0.5,-10.5
 "Buffalo Bills",-16.5,1.5
-"Cincinnati Bengals",NA,NA
 "Cleveland Browns",1,4
 "Dallas Cowboys",5,9
 "Green Bay Packers",16.5,-5.5
@@ -302,7 +296,6 @@
 "Carolina Panthers",3,5
 "Chicago Bears",0,-7
 "Cincinnati Bengals",8.5,-1.5
-"Green Bay Packers",NA,NA
 "Indianapolis Colts",-8.5,-3.5
 "Kansas City Chiefs",-5.5,-2.5
 "Minnesota Vikings",-5,-10
@@ -389,7 +382,6 @@
 "Jacksonville Jaguars",0,3
 "Kansas City Chiefs",10.5,-1.5
 "Minnesota Vikings",-10,-3
-"New England Patriots",NA,NA
 "Philadelphia Eagles",-18,-8
 "Los Angeles Chargers",-10,-7
 "Tennessee Titans",-12,-2
@@ -491,7 +483,6 @@
 "Los Angeles Rams",-17,-14
 "New York Giants",1,4
 "Buffalo Bills",-3,3
-"Carolina Panthers",NA,NA
 "Chicago Bears",-0.5,-4.5
 "Cincinnati Bengals",-31,-3
 "Cleveland Browns",-3,-2
@@ -509,7 +500,6 @@
 "Carolina Panthers",21,-3
 "Cleveland Browns",9.5,-3.5
 "Dallas Cowboys",11.5,3.5
-"Indianapolis Colts",NA,NA
 "Kansas City Chiefs",-10.5,-3.5
 "Minnesota Vikings",-9.5,-3.5
 "New Orleans Saints",17.5,2.5
@@ -791,7 +781,6 @@
 "Cleveland Browns",-11.5,-4.5
 "Denver Broncos",-8,-12
 "Houston Texans",6.5,2.5
-"Minnesota Vikings",NA,NA
 "New Orleans Saints",-32.5,1.5
 "New York Jets",-14,-3
 "Pittsburgh Steelers",-20.5,-3.5
@@ -827,7 +816,6 @@
 "Los Angeles Rams",26,-10
 "Atlanta Falcons",-25,3
 "Buffalo Bills",14,-3
-"Carolina Panthers",NA,NA
 "Cincinnati Bengals",9,1
 "Cleveland Browns",-9.5,-3.5
 "Detroit Lions",-28,3
@@ -869,7 +857,6 @@
 "Carolina Panthers",6.5,3.5
 "Cincinnati Bengals",3,-4
 "Dallas Cowboys",0,-4
-"Detroit Lions",NA,NA
 "Jacksonville Jaguars",11,6
 "Kansas City Chiefs",12,-9
 "New York Giants",-31.5,-11.5
@@ -1072,7 +1059,6 @@
 "Los Angeles Chargers",15.5,2.5
 "San Francisco 49ers",2,-1
 "Seattle Seahawks",-14,-8
-"Washington Commanders",NA,NA
 "Green Bay Packers",-24,-3
 "Atlanta Falcons",-4.5,-5.5
 "Buffalo Bills",2.5,-4.5
@@ -1118,7 +1104,6 @@
 "Baltimore Ravens",8,-6
 "Buffalo Bills",8,3
 "Carolina Panthers",-9,-6
-"Cincinnati Bengals",NA,NA
 "Denver Broncos",11,-7
 "Detroit Lions",-10.5,-3.5
 "Miami Dolphins",-4,-3
@@ -1172,7 +1157,6 @@
 "New England Patriots",14,-7
 "New York Giants",-14,7
 "Pittsburgh Steelers",-1,-10
-"San Francisco 49ers",NA,NA
 "Seattle Seahawks",-33,-4
 "Green Bay Packers",21,-7
 "Baltimore Ravens",-7.5,-6.5
@@ -1232,7 +1216,6 @@
 "Jacksonville Jaguars",-27.5,-6.5
 "Miami Dolphins",-6,-9
 "New Orleans Saints",6.5,-6.5
-"New York Jets",NA,NA
 "Pittsburgh Steelers",8,-5
 "San Francisco 49ers",-24,10
 "Seattle Seahawks",-4,-7
@@ -1343,10 +1326,8 @@
 "Chicago Bears",23,-2
 "Dallas Cowboys",-0.5,-3.5
 "Denver Broncos",5,-3
-"Detroit Lions",NA,NA
 "Kansas City Chiefs",0.5,-6.5
 "New Orleans Saints",1,4
-"Las Vegas Raiders",NA,NA
 "Pittsburgh Steelers",-11,-5
 "Seattle Seahawks",23.5,-8.5
 "Tampa Bay Buccaneers",9.5,-4.5
@@ -1389,8 +1370,6 @@
 "New Orleans Saints",-0.5,2.5
 "New York Jets",0.5,5.5
 "San Francisco 49ers",-8.5,9.5
-"Tampa Bay Buccaneers",NA,NA
-"Washington Commanders",NA,NA
 "New England Patriots",-16,3
 "Atlanta Falcons",-17.5,-9.5
 "Buffalo Bills",8.5,-2.5
@@ -1443,7 +1422,6 @@
 "Cleveland Browns",-3,3
 "Detroit Lions",-2,3
 "Indianapolis Colts",18,-14
-"Kansas City Chiefs",NA,NA
 "Miami Dolphins",-2,-3
 "New England Patriots",5.5,-7.5
 "New Orleans Saints",-3.5,3.5
@@ -1707,8 +1685,6 @@
 "Chicago Bears",1,-9
 "Cleveland Browns",8,5
 "Denver Broncos",-7,-4
-"Green Bay Packers",NA,NA
-"Miami Dolphins",NA,NA
 "New England Patriots",-6.5,-13.5
 "New Orleans Saints",17,-7
 "New York Giants",0.5,3.5
@@ -1946,7 +1922,6 @@
 "Philadelphia Eagles",0.5,-9.5
 "San Francisco 49ers",-1,3
 "Seattle Seahawks",1.5,-5.5
-"Denver Broncos",NA,NA
 "Atlanta Falcons",-4,14
 "Dallas Cowboys",16.5,-14.5
 "Detroit Lions",-8,3
@@ -1964,7 +1939,6 @@
 "Tampa Bay Buccaneers",3,-3
 "Pittsburgh Steelers",-13,-16
 "Dallas Cowboys",3.5,-6.5
-"Arizona Cardinals",NA,NA
 "Carolina Panthers",14,-3
 "Chicago Bears",-4,1
 "Indianapolis Colts",-4,-7
@@ -2710,7 +2684,6 @@
 "Green Bay Packers",31,-7
 "Houston Texans",-3,3
 "Minnesota Vikings",-4.5,-7.5
-"Las Vegas Raiders",NA,NA
 "Philadelphia Eagles",-1,-3
 "Seattle Seahawks",-26.5,7.5
 "Cincinnati Bengals",-0.5,5.5
@@ -2721,7 +2694,6 @@
 "Cleveland Browns",-2.5,3.5
 "Denver Broncos",21,1
 "Indianapolis Colts",-1,-7
-"Jacksonville Jaguars",NA,NA
 "Miami Dolphins",11,-1
 "New York Giants",-25.5,-12.5
 "Pittsburgh Steelers",-17.5,-4.5
@@ -2777,7 +2749,6 @@
 "New England Patriots",38,-4
 "Tennessee Titans",2,4
 "Arizona Cardinals",34,4
-"Buffalo Bills",NA,NA
 "Carolina Panthers",-13.5,7.5
 "Chicago Bears",-26,3
 "Dallas Cowboys",1,4
@@ -2794,7 +2765,6 @@
 "Los Angeles Chargers",16.5,-10.5
 "Baltimore Ravens",3.5,-2.5
 "Carolina Panthers",4.5,-2.5
-"Cincinnati Bengals",NA,NA
 "Dallas Cowboys",-6.5,-9.5
 "Indianapolis Colts",5.5,-4.5
 "Miami Dolphins",-8.5,-5.5
@@ -2834,7 +2804,6 @@
 "New England Patriots",25,-6
 "New Orleans Saints",-17,-7
 "New York Jets",29.5,-1.5
-"Philadelphia Eagles",NA,NA
 "San Francisco 49ers",25,-6
 "Seattle Seahawks",13,3
 "Washington Commanders",1,4
@@ -3199,7 +3168,6 @@
 "Seattle Seahawks",5,4
 "Tampa Bay Buccaneers",23,-5
 "Washington Commanders",14,2
-"Los Angeles Chargers",NA,NA
 "San Francisco 49ers",-0.5,-7.5
 "Buffalo Bills",-5.5,-4.5
 "Carolina Panthers",-2.5,2.5
@@ -3317,7 +3285,6 @@
 "New England Patriots",22.5,-5.5
 "Philadelphia Eagles",-16,5
 "Arizona Cardinals",34.5,6.5
-"Atlanta Falcons",NA,NA
 "Baltimore Ravens",-14,3
 "Buffalo Bills",-28,5
 "Chicago Bears",-5,3
@@ -3463,7 +3430,6 @@
 "San Francisco 49ers",1.5,-10.5
 "Seattle Seahawks",-4.5,-11.5
 "Tampa Bay Buccaneers",-8,3
-"Los Angeles Chargers",NA,NA
 "Arizona Cardinals",-7.5,4.5
 "Atlanta Falcons",1.5,-6.5
 "Carolina Panthers",8,-7
@@ -3502,7 +3468,6 @@
 "New York Jets",11.5,5.5
 "Seattle Seahawks",-11.5,-14.5
 "Los Angeles Rams",-4,3
-"Washington Commanders",NA,NA
 "Green Bay Packers",-16.5,-9.5
 "Minnesota Vikings",8,1
 "Arizona Cardinals",-0.5,-3.5
@@ -3941,7 +3906,6 @@
 "Baltimore Ravens",-5.5,-1.5
 "Carolina Panthers",-4.5,-9.5
 "Cleveland Browns",-10.5,-3.5
-"Dallas Cowboys",NA,NA
 "Detroit Lions",-9,3
 "Houston Texans",4,-6
 "Miami Dolphins",-28,-1
@@ -4019,7 +3983,6 @@
 "Kansas City Chiefs",38,3
 "New Orleans Saints",0,-3
 "Las Vegas Raiders",17,3
-"Pittsburgh Steelers",NA,NA
 "Los Angeles Rams",13,-8
 "Carolina Panthers",-2.5,-5.5
 "Cincinnati Bengals",8,-13
@@ -4056,7 +4019,6 @@
 "Chicago Bears",0,2
 "Houston Texans",11,4
 "Miami Dolphins",-8,2
-"Minnesota Vikings",NA,NA
 "Philadelphia Eagles",-34.5,-6.5
 "Los Angeles Chargers",-27,3
 "Seattle Seahawks",2,-14
@@ -4089,7 +4051,6 @@
 "Pittsburgh Steelers",25.5,-9.5
 "Los Angeles Chargers",-8,6
 "Los Angeles Rams",-20.5,3.5
-"Tampa Bay Buccaneers",NA,NA
 "Tennessee Titans",0,-3
 "Washington Commanders",-5,-2
 "Arizona Cardinals",-7,-10
@@ -4182,7 +4143,6 @@
 "Tennessee Titans",-6.5,2.5
 "San Francisco 49ers",30.5,2.5
 "Washington Commanders",-19.5,2.5
-"Buffalo Bills",NA,NA
 "Arizona Cardinals",26,-7
 "Carolina Panthers",6.5,-12.5
 "Cleveland Browns",-0.5,4.5
@@ -4308,7 +4268,6 @@
 "Tampa Bay Buccaneers",28.5,2.5
 "Tennessee Titans",25,3
 "Washington Commanders",3.5,-2.5
-"New York Giants",NA,NA
 "Carolina Panthers",-0.5,-3.5
 "Cincinnati Bengals",-6.5,-2.5
 "Cleveland Browns",-6.5,8.5
@@ -4623,7 +4582,6 @@
 "Los Angeles Rams",-9,-1
 "New York Giants",-16,4
 "Pittsburgh Steelers",-5,-6
-"Tampa Bay Buccaneers",NA,NA
 "Miami Dolphins",17.5,10.5
 "Indianapolis Colts",-9,3
 "Detroit Lions",5,-5
@@ -5808,7 +5766,6 @@
 "Seattle Seahawks",-21,2
 "Chicago Bears",1.5,4.5
 "Tampa Bay Buccaneers",2,-3
-"Detroit Lions",NA,NA
 "Arizona Cardinals",1.5,6.5
 "Baltimore Ravens",13.5,-2.5
 "Carolina Panthers",7.5,10.5
@@ -5888,7 +5845,6 @@
 "San Francisco 49ers",1.5,4.5
 "Las Vegas Raiders",6,3
 "New York Jets",20,3
-"Carolina Panthers",NA,NA
 "Dallas Cowboys",-1,4
 "Cincinnati Bengals",-6.5,8.5
 "Indianapolis Colts",7.5,-5.5
@@ -5977,15 +5933,12 @@
 "New Orleans Saints",20.5,13.5
 "Buffalo Bills",-10,4
 "Philadelphia Eagles",10,7
-"Green Bay Packers",NA,NA
 "Detroit Lions",2,9
-"Seattle Seahawks",NA,NA
 "Miami Dolphins",30.5,3.5
 "Los Angeles Rams",-21,-8
 "Green Bay Packers",19.5,-2.5
 "Arizona Cardinals",-7,4
 "Cleveland Browns",-33.5,14.5
-"Denver Broncos",NA,NA
 "Indianapolis Colts",-7.5,2.5
 "Tennessee Titans",-1,-3
 "San Francisco 49ers",25.5,-2.5
@@ -6045,7 +5998,6 @@
 "New York Giants",-24,3
 "Chicago Bears",-0.5,10.5
 "New Orleans Saints",16.5,-1.5
-"New England Patriots",NA,NA
 "Seattle Seahawks",-1,-4
 "Tampa Bay Buccaneers",-5,-9
 "Detroit Lions",-16.5,5.5
@@ -6102,7 +6054,6 @@
 "New Orleans Saints",-3,-5
 "Arizona Cardinals",0,7
 "Cleveland Browns",-8.5,1.5
-"Baltimore Ravens",NA,NA
 "Las Vegas Raiders",8.5,3.5
 "Pittsburgh Steelers",5.5,2.5
 "Detroit Lions",5,10
@@ -6189,7 +6140,6 @@
 "Baltimore Ravens",0,-3
 "Seattle Seahawks",-10.5,1.5
 "Chicago Bears",10,3
-"New Orleans Saints",NA,NA
 "Washington Commanders",18,8
 "Arizona Cardinals",10,7
 "Pittsburgh Steelers",12,2
@@ -6291,7 +6241,6 @@
 "New England Patriots",17,14
 "San Francisco 49ers",-1,-4
 "New York Jets",3,-3
-"Baltimore Ravens",NA,NA
 "Minnesota Vikings",0.5,4.5
 "Los Angeles Chargers",31,3
 "Kansas City Chiefs",3,2
@@ -6309,7 +6258,6 @@
 "Detroit Lions",-21,3
 "Cincinnati Bengals",-9.5,3.5
 "Tennessee Titans",-11.5,-3.5
-"Miami Dolphins",NA,NA
 "Jacksonville Jaguars",10.5,3.5
 "Buffalo Bills",9.5,3.5
 "Green Bay Packers",-17.5,-2.5
@@ -6591,7 +6539,6 @@
 "Cincinnati Bengals",11.5,4.5
 "Detroit Lions",8,12
 "Jacksonville Jaguars",-6.5,-2.5
-"San Francisco 49ers",NA,NA
 "Indianapolis Colts",32.5,-1.5
 "Dallas Cowboys",14,3
 "Tennessee Titans",20.5,3.5
@@ -6627,7 +6574,6 @@
 "Atlanta Falcons",-26,10
 "New Orleans Saints",25,-3
 "Washington Commanders",-14,3
-"Tennessee Titans",NA,NA
 "Baltimore Ravens",-9,-1
 "Los Angeles Chargers",9.5,3.5
 "Dallas Cowboys",28,-3
@@ -6669,7 +6615,6 @@
 "Tampa Bay Buccaneers",-6.5,-3.5
 "Houston Texans",-3,4
 "Buffalo Bills",0,4
-"Chicago Bears",NA,NA
 "Indianapolis Colts",-11,-6
 "Cleveland Browns",-12,9
 "Atlanta Falcons",31.5,11.5
@@ -6872,7 +6817,6 @@
 "Jacksonville Jaguars",-15.5,-2.5
 "Arizona Cardinals",-2,1
 "Los Angeles Rams",14,8
-"Baltimore Ravens",NA,NA
 "Tennessee Titans",24,3
 "Los Angeles Chargers",4.5,5.5
 "Miami Dolphins",-2.5,4.5
@@ -6918,7 +6862,6 @@
 "Cleveland Browns",-8,6
 "New York Jets",-8,-3
 "Las Vegas Raiders",9,6
-"Dallas Cowboys",NA,NA
 "Houston Texans",-11,7
 "Washington Commanders",10.5,3.5
 "Arizona Cardinals",4,3
@@ -6972,7 +6915,6 @@
 "Baltimore Ravens",-14,7
 "Philadelphia Eagles",14,-7
 "Washington Commanders",1,10
-"Miami Dolphins",NA,NA
 "Buffalo Bills",33,4
 "Los Angeles Rams",-21,7
 "Cincinnati Bengals",7.5,6.5
@@ -7032,7 +6974,6 @@
 "Houston Texans",27.5,6.5
 "Cleveland Browns",6,9
 "Atlanta Falcons",-6.5,6.5
-"New England Patriots",NA,NA
 "Baltimore Ravens",-8,5
 "Buffalo Bills",24,-10
 "Arizona Cardinals",4,7
@@ -7143,10 +7084,8 @@
 "Minnesota Vikings",-23,2
 "New York Giants",0.5,3.5
 "New England Patriots",-5,3
-"Carolina Panthers",NA,NA
 "Washington Commanders",-0.5,6.5
 "Atlanta Falcons",-1,-4
-"Los Angeles Chargers",NA,NA
 "Jacksonville Jaguars",11,5
 "Houston Texans",-23.5,8.5
 "Miami Dolphins",-9.5,4.5
@@ -7189,8 +7128,6 @@
 "Chicago Bears",0.5,-2.5
 "Los Angeles Chargers",-0.5,-5.5
 "New York Giants",8.5,-9.5
-"Carolina Panthers",NA,NA
-"Philadelphia Eagles",NA,NA
 "Indianapolis Colts",16,-3
 "Green Bay Packers",17.5,9.5
 "Kansas City Chiefs",-8.5,2.5
@@ -7243,7 +7180,6 @@
 "Jacksonville Jaguars",3,-3
 "Minnesota Vikings",2,-3
 "Tennessee Titans",-18,14
-"Denver Broncos",NA,NA
 "Buffalo Bills",2,3
 "New York Jets",-5.5,7.5
 "Tampa Bay Buccaneers",3.5,-3.5
@@ -7507,8 +7443,6 @@
 "Minnesota Vikings",-1,9
 "Kansas City Chiefs",-8,-5
 "Seattle Seahawks",7,4
-"New York Jets",NA,NA
-"Jacksonville Jaguars",NA,NA
 "Detroit Lions",6.5,13.5
 "San Francisco 49ers",-17,7
 "Dallas Cowboys",-0.5,-3.5
@@ -7746,7 +7680,6 @@
 "Miami Dolphins",-0.5,9.5
 "Los Angeles Rams",1,-3
 "Chicago Bears",-1.5,5.5
-"Tennessee Titans",NA,NA
 "Indianapolis Colts",4,-14
 "New York Jets",-16.5,14.5
 "Green Bay Packers",8,-3
@@ -7764,7 +7697,6 @@
 "Washington Commanders",-3,3
 "Miami Dolphins",13,16
 "Green Bay Packers",-3.5,6.5
-"Cleveland Browns",NA,NA
 "San Francisco 49ers",-14,3
 "New York Giants",4,-1
 "Jacksonville Jaguars",4,7
@@ -8510,7 +8442,6 @@
 "Dallas Cowboys",-31,7
 "Los Angeles Chargers",3,-3
 "Arizona Cardinals",4.5,7.5
-"Kansas City Chiefs",NA,NA
 "Indianapolis Colts",1,3
 "New York Giants",26.5,-7.5
 "Pittsburgh Steelers",0.5,-5.5
@@ -8521,7 +8452,6 @@
 "New York Jets",2.5,-3.5
 "Kansas City Chiefs",-21,-1
 "Cincinnati Bengals",1,7
-"Houston Texans",NA,NA
 "Tennessee Titans",-11,1
 "Dallas Cowboys",25.5,12.5
 "New England Patriots",17.5,4.5
@@ -8577,7 +8507,6 @@
 "New York Jets",-38,4
 "Indianapolis Colts",-2,-4
 "Denver Broncos",-34,-4
-"Cleveland Browns",NA,NA
 "Atlanta Falcons",13.5,-7.5
 "New England Patriots",26,-3
 "Philadelphia Eagles",-1,-4
@@ -8594,7 +8523,6 @@
 "San Francisco 49ers",-16.5,10.5
 "New Orleans Saints",-3.5,2.5
 "Arizona Cardinals",-4.5,2.5
-"Cleveland Browns",NA,NA
 "Washington Commanders",6.5,9.5
 "Jacksonville Jaguars",-5.5,4.5
 "Buffalo Bills",8.5,5.5
@@ -8634,7 +8562,6 @@
 "Miami Dolphins",-25,6
 "Tampa Bay Buccaneers",17,7
 "Buffalo Bills",-29.5,1.5
-"Dallas Cowboys",NA,NA
 "Arizona Cardinals",-25,6
 "Los Angeles Rams",-13,-3
 "New York Giants",-1,-4
@@ -8999,7 +8926,6 @@
 "New England Patriots",-5,-4
 "Kansas City Chiefs",-23,5
 "Minnesota Vikings",-14,-2
-"Denver Broncos",NA,NA
 "Seattle Seahawks",0.5,7.5
 "Tennessee Titans",5.5,4.5
 "Dallas Cowboys",2.5,-2.5
@@ -9117,7 +9043,6 @@
 "Houston Texans",-22.5,5.5
 "Cincinnati Bengals",16,-5
 "Detroit Lions",-34.5,-6.5
-"New York Giants",NA,NA
 "Denver Broncos",14,-3
 "Seattle Seahawks",28,-5
 "Green Bay Packers",5,-3
@@ -9263,7 +9188,6 @@
 "Arizona Cardinals",-1.5,10.5
 "Tennessee Titans",4.5,11.5
 "Philadelphia Eagles",8,-3
-"Indianapolis Colts",NA,NA
 "Seattle Seahawks",7.5,-4.5
 "Tampa Bay Buccaneers",-1.5,6.5
 "Los Angeles Rams",-8,7
@@ -9302,7 +9226,6 @@
 "New Orleans Saints",-11.5,-5.5
 "Tampa Bay Buccaneers",11.5,14.5
 "Tennessee Titans",4,-3
-"Los Angeles Chargers",NA,NA
 "Chicago Bears",16.5,9.5
 "Washington Commanders",-8,-1
 "Houston Texans",0.5,3.5
@@ -9741,7 +9664,6 @@
 "Cincinnati Bengals",5.5,1.5
 "New Orleans Saints",4.5,9.5
 "Las Vegas Raiders",10.5,3.5
-"Atlanta Falcons",NA,NA
 "Denver Broncos",9,-3
 "Tampa Bay Buccaneers",-4,6
 "Buffalo Bills",28,1
@@ -9819,7 +9741,6 @@
 "Detroit Lions",-38,-3
 "New York Giants",0,3
 "New York Jets",-17,-3
-"Cincinnati Bengals",NA,NA
 "San Francisco 49ers",-13,8
 "Indianapolis Colts",2.5,5.5
 "Cleveland Browns",-8,13
@@ -9856,7 +9777,6 @@
 "Denver Broncos",0,-2
 "New York Jets",-11,-4
 "Dallas Cowboys",8,-2
-"Green Bay Packers",NA,NA
 "Tampa Bay Buccaneers",34.5,6.5
 "Kansas City Chiefs",27,-3
 "San Francisco 49ers",-2,14
@@ -9889,7 +9809,6 @@
 "Indianapolis Colts",-25.5,9.5
 "Denver Broncos",8,-6
 "Arizona Cardinals",20.5,-3.5
-"Atlanta Falcons",NA,NA
 "Jacksonville Jaguars",0,3
 "Dallas Cowboys",5,2
 "Minnesota Vikings",7,10
@@ -9982,7 +9901,6 @@
 "Minnesota Vikings",6.5,-2.5
 "Los Angeles Rams",-30.5,-2.5
 "Pittsburgh Steelers",19.5,-2.5
-"New York Jets",NA,NA
 "Tampa Bay Buccaneers",-26,7
 "San Francisco 49ers",-6.5,12.5
 "Baltimore Ravens",0.5,-4.5
@@ -10108,7 +10026,6 @@
 "Chicago Bears",-28.5,-2.5
 "Green Bay Packers",-25,-3
 "Minnesota Vikings",-3.5,2.5
-"Cincinnati Bengals",NA,NA
 "New Orleans Saints",0.5,3.5
 "Buffalo Bills",6.5,2.5
 "Pittsburgh Steelers",6.5,-8.5
@@ -10423,7 +10340,6 @@
 "Philadelphia Eagles",9,1
 "Dallas Cowboys",16,-4
 "Baltimore Ravens",5,6
-"Detroit Lions",NA,NA
 "New England Patriots",-17.5,-10.5
 "Denver Broncos",9,-3
 "Chicago Bears",-5,5
