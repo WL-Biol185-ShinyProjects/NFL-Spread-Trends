@@ -2,7 +2,11 @@
   library(dplyr)
   library(ggplot2)
 
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> f85eed1bee61a1cce0fe9491b3142282fafeac20
   df = read.csv("tidy_df.csv")
   
     ui <- fluidPage(
@@ -16,7 +20,18 @@
       textOutput("win_loss")
       
     )
+<<<<<<< HEAD
 
+=======
+=======
+  # Application title
+  titlePanel("NFL Favorite vs Spread!
+             "))
+  
+  selectInput("nflTeam", "NFL Team", c("Arizona Cardinals", "Atlanta Falcons", "Baltimore Ravens", "Buffalo Bills", "Carolina Panthers", "Chicago Bears", "Cincinnati Bengals", "Cleveland Browns", "Dallas Cowboys", "Denver Broncos", "Detroit Lions", "Green Bay Packers", "Houston Texans", "Indianapolis Colts", "Jacksonville Jaguars", "Kansas City Chiefs", "Las Vegas Raiders", "Los Angeles Chargers", "Los Angeles Rams", "Miami Dolphins", "Minnesota Vikings", "New England Patriots", "New Orleans Saints", "New York Giants", "New York Jets", "Philadelphia Eagles", "Pittsburgh Steelers", "San Francisco 49ers", "Seattle Seahawks", "Tampa Bay Buccaneers", "Tennessee Titans", "Washington Commanders"))
+>>>>>>> e8fae6196d91f54ad28e8df7ce2b615f60e32e77
+  
+>>>>>>> f85eed1bee61a1cce0fe9491b3142282fafeac20
   
     
   shinyApp(ui = ui, server = server)
