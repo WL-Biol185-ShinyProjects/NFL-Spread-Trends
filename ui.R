@@ -1,8 +1,7 @@
   library(shiny)
   library(dplyr)
   library(ggplot2)
-
-
+  
   df = read.csv("tidy_df.csv")
   
     ui <- fluidPage(
@@ -17,6 +16,5 @@
       
     )
 
-  
     
   shinyApp(ui = ui, server = server)

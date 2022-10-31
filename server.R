@@ -1,22 +1,16 @@
 library(shiny)
-library(ggplot2)
 
-tidy_df = read.csv('tidy_df.csv')
-
-# Define server logic for drop down memu
-server = function(input, output) {
+# Define server logic required to draw a histogram
+function(input, output) {
   
-  win = tidy_df["team" == input$sel_team & tidy_df$diff > 0]
-  
-  output$win_loss = renderText({"The", input$sel_team, "is" 
+  output$distPlot <- renderPlot({
     
+    # generate bins based on input$bins from ui.R
+    x    <- faithful[, 2] 
+    bins <- seq(min(x), max(x), length.out = input$bins + 1)
     
-  })
-    
-  })
-  
-  output$selected_team = renderText({
-    paste("Select the team you would like to find out about:")
+    # draw the histogram with the specified number of bins
+    hist(x, breaks = bins, col = 'darkgray', border = 'white')
     
   })
   
