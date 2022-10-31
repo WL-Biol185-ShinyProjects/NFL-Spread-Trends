@@ -2,7 +2,7 @@
   library(dplyr)
   library(ggplot2)
 
-  
+
   df = read.csv("tidy_df.csv")
   
     ui <- fluidPage(
@@ -16,6 +16,7 @@
       textOutput("win_loss")
       
     )
+
   
-  
+    
   shinyApp(ui = ui, server = server)
