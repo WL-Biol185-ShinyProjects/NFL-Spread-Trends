@@ -3,7 +3,6 @@
   library(ggplot2)
 
   
-<<<<<<< HEAD
   df = read.csv("tidy_df.csv")
   
     ui <- fluidPage(
