@@ -1,18 +1,15 @@
 library(shiny)
+library(ggplot2)
 
-# Define server logic required to draw a histogram
-function(input, output) {
-  
-  output$distPlot <- renderPlot({
+tidy_df = read.csv("tidy_df.csv")
     
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2] 
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
-    
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
-    
+#Define server logic fro drop down menu
+server = function(input, output) {  
+  win = tidy_df["team" == input$sel_team & tidy_df$diff >0]
+  output$win_loss = renderText({"The", input$sel_spread, "is"
+    })
   })
-  
-}
-hello
+
+output$selected_team = renderText({
+  paste("Select the team you would like to find out about")
+})
