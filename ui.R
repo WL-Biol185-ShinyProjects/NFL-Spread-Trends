@@ -2,7 +2,7 @@
   library(dplyr)
   library(ggplot2)
 
-  server = function(input, output, session) {}
+  server <- function(input, output, session) {}
   df = read.csv("tidy_df.csv")
   
     ui <- fluidPage(
