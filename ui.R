@@ -9,10 +9,13 @@
  
 
   fluidPage(
-      titlePanel("How good is each NFL team against the spread since 2000?"),
+      titlePanel("How good is your NFL team since 2000?"),
       
       sidebarLayout(
         sidebarPanel(
+          
+          textOutput("sidebar_text"),
+          
           selectInput("sel_team",
                       label = "Choose an NFL Team",
                       choices = unique(df['team'])),
@@ -26,6 +29,7 @@
           textOutput("win_loss")),
 
         mainPanel(
+          h3(textOutput("main_panel_text")),
           leafletOutput('chloropleth'))
         
       )
