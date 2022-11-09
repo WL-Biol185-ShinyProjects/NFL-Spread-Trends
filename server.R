@@ -3,6 +3,7 @@ library(ggplot2)
 library(usmap)
 
 df = read.csv("tidy_df.csv")
+map_df = read.csv("map_df_tidy.csv")
 
 #Define server logic fro drop down menu
 function(input, output, server) {  
@@ -22,7 +23,12 @@ function(input, output, server) {
     
   })
   
-  output$heat_map = renderPlot({ plot_usmap()
+  output$heat_map = renderPlot({ 
+    
+    #map_df_selected = filter(map_df_selected, team == input$sel_team)
+    
+    
+    plot_usmap()
     
     
   })

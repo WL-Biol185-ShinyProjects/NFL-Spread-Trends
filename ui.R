@@ -4,6 +4,7 @@
   library(usmap)
   
   df = read.csv("tidy_df.csv")
+  map_df = read.csv("map_df_tidy.csv")
   
     fluidPage(
       titlePanel("How good is each NFL team against the spread since 2000?"),

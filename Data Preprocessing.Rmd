@@ -23,10 +23,6 @@ spread_df = filter(nfl_df, schedule_season > 1999)
 spread_df
 ```
 
-## Remove unnecessary columns
-```{r pressure, echo=FALSE}
-spread_df = select(spread_df, c(5:10))
-```
 ## Replace team names that have switched cities or names since 2000
 ```{r pressure, echo=FALSE}
 spread_df$team_home[spread_df$team_home == "Oakland Raiders"] <- "Las Vegas Raiders"
@@ -52,6 +48,14 @@ team_ids = c("ATL", "BUF", "CLE", "DAL", "GB", "KC", "MIA", "MIN", "NE", "NO", "
 names(team_names) = team_ids
 
 spread_df$team_favorite_id = team_names[spread_df$team_favorite_id]
+
+spread_df_whole = spread_df
+```
+
+
+## Remove unnecessary columns
+```{r pressure, echo=FALSE}
+spread_df = select(spread_df, c(5:10))
 
 spread_df
 ```
@@ -124,4 +128,81 @@ tidy_df
 ## export csv
 ```{r pressure, echo=FALSE}
 write.csv(tidy_df, "tidy_df.csv", row.names = FALSE)
+```
+
+
+
+
+## Create new df that contains geographical information for map
+```{r pressure, echo=FALSE}
+spread_df_whole
+
+map_df = select(spread_df_whole, c(5:8))
+
+#assign a 2 letter state id for every game depending on home team
+map_df$location[map_df$team_home == "Atlanta Falcons"] <- "GA"
+map_df$location[map_df$team_home == "Buffalo Bills"] <- "NY"
+map_df$location[map_df$team_home == "Cleveland Browns"] <- "OH"
+map_df$location[map_df$team_home == "Dallas Cowboys"] <- "TX"
+map_df$location[map_df$team_home == "Green Bay Packers"] <- "WI"
+map_df$location[map_df$team_home == "Kansas City Chiefs"] <- "KC"
+map_df$location[map_df$team_home == "Miami Dolphins"] <- "FL"
+map_df$location[map_df$team_home == "Minnesota Vikings"] <- "MN"
+map_df$location[map_df$team_home == "New England Patriots"] <- "MA"
+map_df$location[map_df$team_home == "New Orleans Saints"] <- "LA"
+map_df$location[map_df$team_home == "San Francisco 49ers"] <- "CA"
+map_df$location[map_df$team_home == "Tennessee Titans"] <- "TN"
+map_df$location[map_df$team_home == "Jacksonville Jaguars"] <- "FL"
+map_df$location[map_df$team_home == "Philadelphia Eagles"] <- "PA"
+map_df$location[map_df$team_home == "New York Jets"] <- "NY"
+map_df$location[map_df$team_home == "Indianapolis Colts"] <- "IN"
+map_df$location[map_df$team_home == "Seattle Seahawks"] <- "WA"
+map_df$location[map_df$team_home == "Pittsburgh Steelers"] <- "PA"
+map_df$location[map_df$team_home == "Washington Commanders"] <- "MD"
+map_df$location[map_df$team_home == "Los Angeles Rams"] <- "CA"
+map_df$location[map_df$team_home == "Arizona Cardinals"] <- "AZ"
+map_df$location[map_df$team_home == "Baltimore Ravens"] <- "MD"
+map_df$location[map_df$team_home == "Cincinnati Bengals"] <- "OH"
+map_df$location[map_df$team_home == "Denver Broncos"] <- "CO"
+map_df$location[map_df$team_home == "Detroit Lions"] <- "MI"
+map_df$location[map_df$team_home == "Los Angeles Chargers"] <- "CA"
+map_df$location[map_df$team_home == "Tampa Bay Buccaneers"] <- "FL"
+map_df$location[map_df$team_home == "New York Giants"] <- "NY"
+map_df$location[map_df$team_home == "Las Vegas Raiders"] <- "NV"
+map_df$location[map_df$team_home == "Carolina Panthers"] <- "NC"
+map_df$location[map_df$team_home == "Chicago Bears"] <- "IL"
+map_df$location[map_df$team_home == "Houston Texans"] <- "TX"
+
+map_df
+```
+
+
+## Create difference column to determine who won the game, ignoring spread
+```{r pressure, echo=FALSE}
+map_df$diff_home = map_df$score_home - map_df$score_away
+map_df$diff_away = map_df$score_away - map_df$score_home
+
+map_df
+```
+
+## Use rbind to create 1 dataframe containing team, difference, and location columns
+```{r pressure, echo=FALSE}
+map_df_home = map_df[, c(1,6,5)]
+map_df_away = map_df[, c(4,7,5)]
+
+map_df_away_renamed = setNames(map_df_away, names(map_df_home))
+
+map_df_tidy = rbind(map_df_home, map_df_away_renamed)
+
+map_df_tidy = map_df_tidy %>%
+  rename("team" = "team_home",
+         "difference" = "diff_home",
+         "state" = "location")
+
+map_df_tidy
+```
+
+## export csv
+```{r pressure, echo=FALSE}
+write.csv(map_df_tidy, "map_df_tidy.csv", row.names = FALSE)
 ```
