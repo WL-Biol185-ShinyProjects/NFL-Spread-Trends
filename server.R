@@ -5,9 +5,7 @@ library(usmap)
 df = read.csv("tidy_df.csv")
 map_df = read.csv("map_df_tidy.csv")
 
-<<<<<<< HEAD
 
-=======
 #Define server logic fro drop down menu
 function(input, output, server) {  
   
@@ -35,5 +33,4 @@ function(input, output, server) {
     
     
   })
-}
->>>>>>> 811e38a7878957e379fd6dbb45d763785ba60b57
+
