@@ -6,6 +6,7 @@ library(geojsonio)
 df = read.csv("tidy_df.csv")
 map_df = read.csv("map_df_tidy.csv")
 
+
 #Define server logic fro drop down menu
 function(input, output, server) {  
   
@@ -45,4 +46,4 @@ function(input, output, server) {
       #addLegend("bottomright", pal = pal, values = ~net_wins, opacity = 1)
     
   })
-}
+
