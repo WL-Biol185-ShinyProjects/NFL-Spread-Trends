@@ -206,3 +206,46 @@ map_df_tidy
 ```{r pressure, echo=FALSE}
 write.csv(map_df_tidy, "map_df_tidy.csv", row.names = FALSE)
 ```
+
+```{r}
+field = read.csv('NFLlocations.csv')
+field
+```
+
+```{r}
+field$Team[field$Team == "Titans"] <- "Tennessee Titans"
+field$Team[field$Team == "Giants"] <- "New York Giants"
+field$Team[field$Team == "Steelers"] <- "Pittsburgh Steelers"
+field$Team[field$Team == "Panthers"] <- "Carolina Panthers"
+field$Team[field$Team == "Ravens"] <- "Baltimore Ravens"
+field$Team[field$Team == "Buccaneers"] <- "Tampa Bay Buccaneers"
+field$Team[field$Team == "Colts"] <- "Indianapolis Colts"
+field$Team[field$Team == "Vikings"] <- "Minnesota Vikings"
+field$Team[field$Team == "Cardinals"] <- "Arizona Cardinals"
+field$Team[field$Team == "Cowboys"] <- "Dallas Cowboys"
+field$Team[field$Team == "Falcons"] <- "Atlanta Falcons"
+field$Team[field$Team == "Jets"] <- "New York Jets"
+field$Team[field$Team == "Broncos"] <- "Denver Broncos"
+field$Team[field$Team == "Dolphins"] <- "Miami Dolphins"
+field$Team[field$Team == "Eagles"] <- "Philadelphia Eagles"
+field$Team[field$Team == "Bears"] <- "Chicago Bears"
+field$Team[field$Team == "Patriots"] <- "New England Patriots"
+field$Team[field$Team == "Redskins"] <- "Washington Commanders"
+field$Team[field$Team == "Packers"] <- "Green Bay Packers"
+field$Team[field$Team == "Chargers"] <- "Los Angeles Chargers"
+field$Team[field$Team == "Saints"] <- "New Orleans Saints"
+field$Team[field$Team == "Texans"] <- "Houston Texans"
+field$Team[field$Team == "Bills"] <- "Buffalo Bills"
+field$Team[field$Team == "Forty-Niners"] <- "San Francisco 49ers"
+field$Team[field$Team == "Jaguars"] <- "Jacksonville Jaguars"
+field$Team[field$Team == "Browns"] <- "Cleveland Browns"
+field$Team[field$Team == "Raiders"] <- "Las Vegas Raiders"
+field$Team[field$Team == "Chiefs"] <- "Kansas City Chiefs"
+field$Team[field$Team == "Rams"] <- "Los Angeles Rams"
+field$Team[field$Team == "Seahawks"] <- "Seattle Seahawks"
+field$Team[field$Team == "Bengals"] <- "Cincinnati Bengals"
+field$Team[field$Team == "Lions"] <- "Detroit Lions"
+
+field
+```
+
