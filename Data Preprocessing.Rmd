@@ -8,6 +8,7 @@ output: md_document
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
+library(mapview)
 ```
 
 ##Import CSV file
@@ -140,38 +141,38 @@ spread_df_whole
 map_df = select(spread_df_whole, c(5:8))
 
 #assign a 2 letter state id for every game depending on home team
-map_df$location[map_df$team_home == "Atlanta Falcons"] <- "GA"
-map_df$location[map_df$team_home == "Buffalo Bills"] <- "NY"
-map_df$location[map_df$team_home == "Cleveland Browns"] <- "OH"
-map_df$location[map_df$team_home == "Dallas Cowboys"] <- "TX"
-map_df$location[map_df$team_home == "Green Bay Packers"] <- "WI"
-map_df$location[map_df$team_home == "Kansas City Chiefs"] <- "KC"
-map_df$location[map_df$team_home == "Miami Dolphins"] <- "FL"
-map_df$location[map_df$team_home == "Minnesota Vikings"] <- "MN"
-map_df$location[map_df$team_home == "New England Patriots"] <- "MA"
-map_df$location[map_df$team_home == "New Orleans Saints"] <- "LA"
-map_df$location[map_df$team_home == "San Francisco 49ers"] <- "CA"
-map_df$location[map_df$team_home == "Tennessee Titans"] <- "TN"
-map_df$location[map_df$team_home == "Jacksonville Jaguars"] <- "FL"
-map_df$location[map_df$team_home == "Philadelphia Eagles"] <- "PA"
-map_df$location[map_df$team_home == "New York Jets"] <- "NY"
-map_df$location[map_df$team_home == "Indianapolis Colts"] <- "IN"
-map_df$location[map_df$team_home == "Seattle Seahawks"] <- "WA"
-map_df$location[map_df$team_home == "Pittsburgh Steelers"] <- "PA"
-map_df$location[map_df$team_home == "Washington Commanders"] <- "MD"
-map_df$location[map_df$team_home == "Los Angeles Rams"] <- "CA"
-map_df$location[map_df$team_home == "Arizona Cardinals"] <- "AZ"
-map_df$location[map_df$team_home == "Baltimore Ravens"] <- "MD"
-map_df$location[map_df$team_home == "Cincinnati Bengals"] <- "OH"
-map_df$location[map_df$team_home == "Denver Broncos"] <- "CO"
-map_df$location[map_df$team_home == "Detroit Lions"] <- "MI"
-map_df$location[map_df$team_home == "Los Angeles Chargers"] <- "CA"
-map_df$location[map_df$team_home == "Tampa Bay Buccaneers"] <- "FL"
-map_df$location[map_df$team_home == "New York Giants"] <- "NY"
-map_df$location[map_df$team_home == "Las Vegas Raiders"] <- "NV"
-map_df$location[map_df$team_home == "Carolina Panthers"] <- "NC"
-map_df$location[map_df$team_home == "Chicago Bears"] <- "IL"
-map_df$location[map_df$team_home == "Houston Texans"] <- "TX"
+map_df$location[map_df$team_home == "Atlanta Falcons"] <- "Georgia"
+map_df$location[map_df$team_home == "Buffalo Bills"] <- "New York"
+map_df$location[map_df$team_home == "Cleveland Browns"] <- "Ohio"
+map_df$location[map_df$team_home == "Dallas Cowboys"] <- "Texas"
+map_df$location[map_df$team_home == "Green Bay Packers"] <- "Wisconsin"
+map_df$location[map_df$team_home == "Kansas City Chiefs"] <- "Missouri"
+map_df$location[map_df$team_home == "Miami Dolphins"] <- "Florida"
+map_df$location[map_df$team_home == "Minnesota Vikings"] <- "Minnesota"
+map_df$location[map_df$team_home == "New England Patriots"] <- "Massachusetts"
+map_df$location[map_df$team_home == "New Orleans Saints"] <- "Louisiana"
+map_df$location[map_df$team_home == "San Francisco 49ers"] <- "California"
+map_df$location[map_df$team_home == "Tennessee Titans"] <- "Tennessee"
+map_df$location[map_df$team_home == "Jacksonville Jaguars"] <- "Florida"
+map_df$location[map_df$team_home == "Philadelphia Eagles"] <- "Pennsylvania"
+map_df$location[map_df$team_home == "New York Jets"] <- "New York"
+map_df$location[map_df$team_home == "Indianapolis Colts"] <- "Indiana"
+map_df$location[map_df$team_home == "Seattle Seahawks"] <- "Washington"
+map_df$location[map_df$team_home == "Pittsburgh Steelers"] <- "Pennsylvania"
+map_df$location[map_df$team_home == "Washington Commanders"] <- "Maryland"
+map_df$location[map_df$team_home == "Los Angeles Rams"] <- "California"
+map_df$location[map_df$team_home == "Arizona Cardinals"] <- "Arizona"
+map_df$location[map_df$team_home == "Baltimore Ravens"] <- "Maryland"
+map_df$location[map_df$team_home == "Cincinnati Bengals"] <- "Ohio"
+map_df$location[map_df$team_home == "Denver Broncos"] <- "Colorado"
+map_df$location[map_df$team_home == "Detroit Lions"] <- "Michigan"
+map_df$location[map_df$team_home == "Los Angeles Chargers"] <- "California"
+map_df$location[map_df$team_home == "Tampa Bay Buccaneers"] <- "Florida"
+map_df$location[map_df$team_home == "New York Giants"] <- "New York"
+map_df$location[map_df$team_home == "Las Vegas Raiders"] <- "Nevada"
+map_df$location[map_df$team_home == "Carolina Panthers"] <- "North Carolina"
+map_df$location[map_df$team_home == "Chicago Bears"] <- "Illinois"
+map_df$location[map_df$team_home == "Houston Texans"] <- "Texas"
 
 map_df
 ```
@@ -197,7 +198,10 @@ map_df_tidy = rbind(map_df_home, map_df_away_renamed)
 map_df_tidy = map_df_tidy %>%
   rename("team" = "team_home",
          "difference" = "diff_home",
-         "state" = "location")
+         "state" = "location") 
+  
+map_df_tidy$win[map_df_tidy$difference > 0] = 1
+map_df_tidy$win[map_df_tidy$difference <= 0] = -1
 
 map_df_tidy
 ```
@@ -206,3 +210,4 @@ map_df_tidy
 ```{r pressure, echo=FALSE}
 write.csv(map_df_tidy, "map_df_tidy.csv", row.names = FALSE)
 ```
+

@@ -1,7 +1,7 @@
   library(shiny)
-  library(dplyr)
-  library(ggplot2)
-  library(usmap)
+  library(tidyverse)
+  library(leaflet)
+  library(geojsonio)
   
   df = read.csv("tidy_df.csv")
   map_df = read.csv("map_df_tidy.csv")
@@ -23,7 +23,8 @@
           
           textOutput("win_loss")),
 
-        mainPanel(plotOutput('heat_map'))
+        mainPanel(
+          leafletOutput('chloropleth'))
         
       )
 
