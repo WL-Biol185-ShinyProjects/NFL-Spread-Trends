@@ -52,7 +52,7 @@ function(input, output, server) {
       
       setView(lat = 38.5, lng = -98.3, zoom = 4) %>%
       addLegend("bottomright", pal = pal, values = ~net_wins, na.label = "No Games Played", title = "Net Wins by Location of Game", 
-                labFormat = labelFormat(between = " to "))
+                labFormat = labelFormat(between = " to "), opacity = .7)
     
   })
 
