@@ -9,30 +9,64 @@
  
 
   fluidPage(
-      titlePanel("How good is your NFL team since 2000?"),
       
-      sidebarLayout(
-        sidebarPanel(
-          
-          textOutput("sidebar_text"),
-          
-          selectInput("sel_team",
-                      label = "Choose an NFL Team",
-                      choices = unique(df['team'])),
-          
-          sliderInput("sel_spread",
-                      label = "Choose a spread",
-                      min = min(df['spread']),
-                      max = max(df['spread']),
-                      value = c(-5,5)),
-          
-          textOutput("win_loss")),
-
-        mainPanel(
-          h3(textOutput("main_panel_text")),
-          leafletOutput('chloropleth'))
-        
+     titlePanel("NFL Records Analysis"),
+    
+      mainPanel(
+        tabsetPanel(
+          tabPanel("Records Against the Spread", 
+                   h3(textOutput("sidebar_text")),
+                   
+                   selectInput("sel_team",
+                               label = "Choose an NFL Team",
+                               choices = unique(df['team'])),
+                   
+                   sliderInput("sel_spread",
+                               label = "Choose a spread",
+                               min = min(df['spread']),
+                               max = max(df['spread']),
+                               value = c(-5,5)),
+                   textOutput("win_loss")),
+          tabPanel("Winningness by Location",
+                   sidebarPanel(
+                     selectInput("sel_team2",
+                                label = "Choose an NFL Team",
+                                choices = unique(df['team']))),
+                   mainPanel(
+                     h3(textOutput("main_panel_text")),
+                     leafletOutput('chloropleth')))
+        )
       )
+  )
+      
+      #tabPanel("Spread", titlePanel("How good is your NFL team since 2000?"),
+      
+        
+          #sidebarPanel(
+          
+            #textOutput("sidebar_text"),
+          
+            #selectInput("sel_team",
+                        #label = "Choose an NFL Team",
+                        #choices = unique(df['team'])),
+          
+            #sliderInput("sel_spread",
+                        #label = "Choose a spread",
+                        #min = min(df['spread']),
+                        #max = max(df['spread']),
+                        #value = c(-5,5)),
+          
+            #mainPanel(textOutput("win_loss"))
+          
+        #)
+      #),
+
+      #tabPanel("Map", 
+      #mainPanel(
+          #h3(textOutput("main_panel_text")),
+          #leafletOutput('chloropleth')))
+        
+ 
 
       
-    )
+    

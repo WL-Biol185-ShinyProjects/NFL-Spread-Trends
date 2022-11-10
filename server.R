@@ -10,7 +10,7 @@ map_df = read.csv("map_df_tidy.csv")
 #Define server logic fro drop down menu
 function(input, output, server) {  
   
-  output$sidebar_text = renderText({ "How good is your team against the spread?" })
+  output$sidebar_text = renderText({ "How good is your team against the spread since 2000?" })
   output$main_panel_text = renderText({"Net Wins by Location of NFL Game"})
   
   output$win_loss = renderText({ 
@@ -30,7 +30,7 @@ function(input, output, server) {
   
   output$chloropleth = renderLeaflet({ 
     
-    map_df = filter(map_df, team == input$sel_team)
+    map_df = filter(map_df, team == input$sel_team2)
     
     map_df = map_df %>% 
       group_by(state) %>%
