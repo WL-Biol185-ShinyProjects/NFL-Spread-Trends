@@ -50,7 +50,7 @@ function(input, output, server) {
                   label = ~net_wins,
                   fillOpacity = .7) %>%
       
-      setView(lat = 38.5, lng = -98.3, zoom = 4) %>%
+      setView(lat = 38.5, lng = -92, zoom = 3.4) %>%
       addLegend("bottomright", pal = pal, values = ~net_wins, na.label = "No Games Played", title = "Net Wins by Location of Game", 
                 labFormat = labelFormat(between = " to "), opacity = .7)
     

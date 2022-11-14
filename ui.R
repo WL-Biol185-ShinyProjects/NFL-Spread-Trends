@@ -14,7 +14,8 @@
     
       mainPanel(
         tabsetPanel(
-          tabPanel("Records Against the Spread", 
+          tabPanel("Records Against the Spread",
+                   sidebarPanel(
                    h3(textOutput("sidebar_text")),
                    
                    selectInput("sel_team",
@@ -25,8 +26,9 @@
                                label = "Choose a spread",
                                min = min(df['spread']),
                                max = max(df['spread']),
-                               value = c(-5,5)),
-                   textOutput("win_loss")),
+                               value = c(-5,5))),
+                   mainPanel(
+                     h2(textOutput("win_loss")))),
           tabPanel("Winningness by Location",
                    sidebarPanel(
                      selectInput("sel_team2",
@@ -38,33 +40,6 @@
         )
       )
   )
-      
-      #tabPanel("Spread", titlePanel("How good is your NFL team since 2000?"),
-      
-        
-          #sidebarPanel(
-          
-            #textOutput("sidebar_text"),
-          
-            #selectInput("sel_team",
-                        #label = "Choose an NFL Team",
-                        #choices = unique(df['team'])),
-          
-            #sliderInput("sel_spread",
-                        #label = "Choose a spread",
-                        #min = min(df['spread']),
-                        #max = max(df['spread']),
-                        #value = c(-5,5)),
-          
-            #mainPanel(textOutput("win_loss"))
-          
-        #)
-      #),
-
-      #tabPanel("Map", 
-      #mainPanel(
-          #h3(textOutput("main_panel_text")),
-          #leafletOutput('chloropleth')))
         
  
 
