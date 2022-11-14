@@ -2,6 +2,7 @@ library(shiny)
 library(tidyverse)
 library(leaflet)
 library(geojsonio)
+library(stats)
 
 df = read.csv("tidy_df.csv")
 map_df = read.csv("map_df_tidy.csv")
@@ -36,26 +37,26 @@ function(input, output, server) {
     
     map_df = map_df %>% 
       group_by(state) %>%
-      summarize(net_wins = sum(win, na.rm = TRUE))
+      summarize(win_pct = mean(win, na.rm = TRUE) * 100)
     
     geo = geojson_read("states.geo.json", what = "sp")
     
     geo@data = left_join(geo@data, map_df, by = c("NAME" = "state"))
     
-    pal = colorBin("RdYlGn", domain = geo@data$net_wins)
+    pal = colorBin("RdYlGn", domain = geo@data$win_pct)
     
     leaflet(geo) %>%
-      addPolygons(fillColor = ~pal(net_wins), 
+      addPolygons(fillColor = ~pal(win_pct), 
                   weight = 1, 
                   color = "white", 
                   highlightOptions = highlightOptions(weight = 5),
-                  label = ~net_wins,
+                  label = ~win_pct,
                   fillOpacity = .7) %>%
       
       setView(lat = 38.5, lng = -92, zoom = 3.4) %>%
-      addLegend("bottomright", pal = pal, values = ~net_wins, na.label = "No Games Played", title = "Net Wins by Location of Game", 
-                labFormat = labelFormat(between = " to "), opacity = .7) %>%
-      addCircles(data = nfl_locations, lng = ~longitude, lat = ~latitude, weight = 5)
+      addLegend("bottomright", pal = pal, values = ~win_pct, na.label = "No Games Played", title = "Win Percentage by Location of Game", 
+                labFormat = labelFormat(between = "-", suffix = "%"), opacity = .7) %>%
+      addCircles(data = nfl_locations, lng = ~longitude, lat = ~latitude, weight = 4)
     
   })
   

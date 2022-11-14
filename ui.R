@@ -2,6 +2,7 @@
   library(tidyverse)
   library(leaflet)
   library(geojsonio)
+  library(stats)
 
 
   df = read.csv("tidy_df.csv")
