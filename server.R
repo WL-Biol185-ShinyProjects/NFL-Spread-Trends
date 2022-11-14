@@ -7,7 +7,7 @@ map_df = read.csv("map_df_tidy.csv")
 
 
 #Define server logic fro drop down menu
-function(input, output, server) {  
+function(input, output, server) { 
   
   output$win_loss = renderText({ 
     
@@ -32,5 +32,5 @@ function(input, output, server) {
     plot_usmap()
     
     
-  })
+  })}
 
