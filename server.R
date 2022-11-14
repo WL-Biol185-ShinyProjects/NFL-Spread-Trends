@@ -57,17 +57,12 @@ function(input, output, server) {
       addLegend("bottomright", pal = pal, values = ~win_pct, na.label = "No Games Played", title = "Win Percentage by Location of Game", 
                 labFormat = labelFormat(between = "-", suffix = "%"), opacity = .7) %>%
       addCircles(data = nfl_locations, lng = ~longitude, lat = ~latitude, weight = 4)
-    
-<<<<<<< HEAD
-  })}
-=======
-  })
   
+  })
   #output$linear_model = renderPlot({
     
     #linear_df = filter()
     
   #})
->>>>>>> 156b9c20b46bba6c0f58135dc1d69b72f114c7fd
 
 }
