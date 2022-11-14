@@ -210,3 +210,38 @@ map_df_tidy
 ```{r pressure, echo=FALSE}
 write.csv(map_df_tidy, "map_df_tidy.csv", row.names = FALSE)
 ```
+
+
+## create csv for model
+```{r pressure, echo=FALSE}
+model_df = map_df
+nfl_df_2000 = filter(nfl_df, schedule_season > 1999)
+
+model_df$temp1 = nfl_df_2000[, 14]
+model_df$temp2 = nfl_df_2000[, 14]
+
+model_df$wind1 = nfl_df_2000[, 15]
+model_df$wind2 = nfl_df_2000[, 15]
+
+model_df
+
+model_df_home = model_df[, c(1,6,8,10)]
+model_df_away = model_df[, c(4,7,9,11)]
+
+model_df_away_renamed = setNames(model_df_away, names(model_df_home))
+
+model_df_tidy = rbind(model_df_home, model_df_away_renamed)
+
+model_df_tidy = model_df_tidy %>%
+  rename("team" = "team_home",
+         "difference" = "diff_home",
+         "temperature" = "temp1",
+         "wind" = "wind1") 
+
+model_df_tidy
+```
+
+## export csv
+```{r pressure, echo=FALSE}
+write.csv(model_df_tidy, "model_df_tidy.csv", row.names = FALSE)
+```

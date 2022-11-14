@@ -6,6 +6,7 @@
 
   df = read.csv("tidy_df.csv")
   map_df = read.csv("map_df_tidy.csv")
+  model_df = read.csv("model_df_tidy.csv")
  
 
   fluidPage(
@@ -36,7 +37,24 @@
                                 choices = unique(df['team']))),
                    mainPanel(
                      h3(textOutput("main_panel_text")),
-                     leafletOutput('chloropleth')))
+                     leafletOutput('chloropleth'))),
+          tabPanel("Outcome Predictor",
+                   sidebarPanel(
+                     selectInput("sel_team3",
+                                 label = "Choose an NFL Team",
+                                 choices = unique(df['team'])),
+                     sliderInput("input_temp",
+                                 label = "Select the Game Temperature (Degrees F)",
+                                 min = min(model_df['temperature'], na.rm = TRUE),
+                                 max = max(model_df['temperature'], na.rm = TRUE),
+                                 value = 49),
+                     sliderInput("input_wind",
+                                 label = "Select Wind MPH",
+                                 min = min(model_df['wind'], na.rm = TRUE),
+                                 max = max(model_df['wind'], na.rm = TRUE),
+                                 value = 21)
+                   ),
+                   mainPanel())
         )
       )
   )

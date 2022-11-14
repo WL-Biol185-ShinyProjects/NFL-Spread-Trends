@@ -5,6 +5,8 @@ library(geojsonio)
 
 df = read.csv("tidy_df.csv")
 map_df = read.csv("map_df_tidy.csv")
+model_df = read.csv("model_df_tidy.csv")
+nfl_locations = read.csv("NFLlocations.csv")
 
 
 #Define server logic fro drop down menu
@@ -55,5 +57,11 @@ function(input, output, server) {
                 labFormat = labelFormat(between = " to "), opacity = .7)
     
   })
+  
+  #output$linear_model = renderPlot({
+    
+    #linear_df = filter()
+    
+  #})
 
 }
