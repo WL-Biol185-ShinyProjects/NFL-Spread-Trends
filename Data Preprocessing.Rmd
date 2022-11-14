@@ -8,6 +8,8 @@ output: md_document
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
+library(stats)
+library(car)
 ```
 
 ##Import CSV file
@@ -236,8 +238,6 @@ model_df_tidy = model_df_tidy %>%
          "difference" = "diff_home",
          "temperature" = "temp1",
          "wind" = "wind1") 
-
-model_df_tidy
 ```
 
 ## export csv

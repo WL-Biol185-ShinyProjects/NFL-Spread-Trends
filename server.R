@@ -59,10 +59,33 @@ function(input, output, server) {
       addCircles(data = nfl_locations, lng = ~longitude, lat = ~latitude, weight = 4)
   
   })
-  #output$linear_model = renderPlot({
+  output$linear_model_temp = renderPlot({
     
-    #linear_df = filter()
+    linear_model_df = filter(model_df, team == input$sel_team3)
     
-  #})
+    linear_model = lm(data = linear_model_df, difference ~ wind + temperature)
+    
+    ggplot(data = linear_model_df, mapping = aes(x = temperature, y = difference)) + 
+      geom_point(alpha = .5, size = 3, color = 'dodgerblue2') + 
+      geom_abline(intercept = coef(linear_model)["(Intercept)"], slope = coef(linear_model)["temperature"], size = 2, alpha = .7) +
+      xlab("Tempature (Degrees F)") +
+      ylab("Win/Loss Margin") + 
+      ggtitle("Win/Loss Margin vs Temperature")
+    
+  })
+  
+  output$linear_model_wind = renderPlot({
+    
+    linear_model_df = filter(model_df, team == input$sel_team3)
+    
+    linear_model = lm(data = linear_model_df, difference ~ wind + temperature)
+    
+    ggplot(data = linear_model_df, mapping = aes(x = wind, y = difference)) + 
+      geom_point(alpha = .5, size = 3, color = 'dodgerblue2') + 
+      geom_abline(intercept = coef(linear_model)["(Intercept)"], slope = coef(linear_model)["wind"], size = 2, alpha = .7) + 
+      xlab("Wind (MPH)") +
+      ylab("Win/Loss Margin")+ 
+      ggtitle("Win/Loss Margin vs Wind Speed")
 
+  })
 }

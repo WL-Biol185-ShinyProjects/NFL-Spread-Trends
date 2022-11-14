@@ -55,9 +55,13 @@
                                  max = max(model_df['wind'], na.rm = TRUE),
                                  value = 21)
                    ),
-                   mainPanel())
+                   mainPanel(
+                     fluidRow(
+                       splitLayout(cellWidths = c("50%", "50%"), plotOutput("linear_model_temp"), plotOutput("linear_model_wind"))
+                   ))
         )
       )
+  )
   )
         
  
