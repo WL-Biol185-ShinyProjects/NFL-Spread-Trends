@@ -56,9 +56,12 @@
                                  value = 21)
                    ),
                    mainPanel(
+                     h2(textOutput("lm_text")),
+                     
                      fluidRow(
                        splitLayout(cellWidths = c("50%", "50%"), plotOutput("linear_model_temp"), plotOutput("linear_model_wind"))
-                   ))
+                   ),
+                      h3(textOutput("linear_model_significance")))
         )
       )
   )

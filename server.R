@@ -14,7 +14,7 @@ nfl_locations = read.csv("NFLlocations.csv")
 function(input, output, server) { 
   
   output$sidebar_text = renderText({ "How good is your team against the spread since 2000?" })
-  output$main_panel_text = renderText({"Net Wins by Location of NFL Game"})
+  output$main_panel_text = renderText({"Win Percentage by Location of NFL Game"})
   
   output$win_loss = renderText({ 
     
@@ -53,10 +53,11 @@ function(input, output, server) {
                   label = ~win_pct,
                   fillOpacity = .7) %>%
       
-      setView(lat = 38.5, lng = -92, zoom = 3.4) %>%
+      setView(lat = 38.5, lng = -80, zoom = 3.4) %>%
       addLegend("bottomright", pal = pal, values = ~win_pct, na.label = "No Games Played", title = "Win Percentage by Location of Game", 
                 labFormat = labelFormat(between = "-", suffix = "%"), opacity = .7) %>%
-      addCircles(data = nfl_locations, lng = ~longitude, lat = ~latitude, weight = 4)
+      addCircles(data = nfl_locations, lng = ~longitude, lat = ~latitude, weight = 4) %>%
+      addLegend("bottomleft", labels = "Locations of NFL Stadiums", colors = "blue")
   
   })
   output$linear_model_temp = renderPlot({
@@ -84,8 +85,33 @@ function(input, output, server) {
       geom_point(alpha = .5, size = 3, color = 'dodgerblue2') + 
       geom_abline(intercept = coef(linear_model)["(Intercept)"], slope = coef(linear_model)["wind"], size = 2, alpha = .7) + 
       xlab("Wind (MPH)") +
-      ylab("Win/Loss Margin")+ 
+      ylab("Win/Loss Margin") + 
       ggtitle("Win/Loss Margin vs Wind Speed")
 
   })
+  
+  output$linear_model_significance = renderText({
+    
+    linear_model_df = filter(model_df, team == input$sel_team3)
+    
+    linear_model = lm(data = linear_model_df, difference ~ wind + temperature)
+    
+    linear_model_significances = summary(linear_model)$coefficients[, 4]
+    
+    if (linear_model_significances["temperature"] > 0.05 && linear_model_significances["wind"] > 0.05){
+      paste("Neither temperature nor wind significantly affect the chances of the ", input$sel_team3, " winning.")
+      
+    } else if (linear_model_significances["temperature"] < 0.05 && linear_model_significances["wind"] > 0.05){
+      paste("Only temperature significantly affects the chances of the ", input$sel_team3, " winning.")
+      
+    } else if (linear_model_significances["temperature"] > 0.05 && linear_model_significances["wind"] < 0.05){
+      paste("Only wind speed significantly affects the chances of the ", input$sel_team3, " winning.")
+      
+    } else {
+      paste("Both temperature and wind speed significantly affect the chances of the ", input$sel_team3, " winning.")
+    }
+  
+  })
+  
+  output$lm_text = renderText({"Do Wind or Temperature Significantly affect Your Team's Chances of Winning a Game?"})
 }

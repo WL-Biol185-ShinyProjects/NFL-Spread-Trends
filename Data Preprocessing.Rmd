@@ -238,6 +238,16 @@ model_df_tidy = model_df_tidy %>%
          "difference" = "diff_home",
          "temperature" = "temp1",
          "wind" = "wind1") 
+
+linear_model_df = filter(model_df_tidy, team == "Atlanta Falcons")
+    
+linear_model = lm(data = linear_model_df, difference ~ wind + temperature)
+  
+aaa = summary(linear_model)$coefficients[,4]
+
+
+aaa['temperature']
+aaa['wind']
 ```
 
 ## export csv
