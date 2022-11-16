@@ -3,6 +3,8 @@ library(tidyverse)
 library(leaflet)
 library(geojsonio)
 library(stats)
+library(DT)
+library(leaflegend)
 
 df = read.csv("tidy_df.csv")
 map_df = read.csv("map_df_tidy.csv")
@@ -16,7 +18,8 @@ function(input, output, server) {
   output$sidebar_text = renderText({ "How good is your team against the spread since 2000?" })
   output$main_panel_text = renderText({"Win Percentage by Location of NFL Game"})
   
-  output$win_loss = renderText({ 
+  
+  output$win_loss_df = renderDT({
     
     selected_df_spread = filter(df, spread >= input$sel_spread[1], spread <= input$sel_spread[2])
     
@@ -27,9 +30,15 @@ function(input, output, server) {
     loss = sum(selected_df_team['difference'] < 0)
     tie = sum(selected_df_team['difference'] == 0)
     
-    paste('The ' , input$sel_team, " are ", win, "-", loss, "-", tie, "against spreads between ", input$sel_spread[1], " and ", input$sel_spread[2], " points.")
+    spread_win_loss_df = data.frame(matrix(ncol = 0, nrow = 1))
     
-  })
+    spread_win_loss_df$Wins = win
+    spread_win_loss_df$Losses = loss
+    spread_win_loss_df$Ties = tie
+    
+     
+    spread_win_loss_df
+      }, rownames = FALSE, options = list(dom = 't'))
   
   output$chloropleth = renderLeaflet({ 
     
@@ -54,10 +63,10 @@ function(input, output, server) {
                   fillOpacity = .7) %>%
       
       setView(lat = 38.5, lng = -80, zoom = 3.4) %>%
-      addLegend("bottomright", pal = pal, values = ~win_pct, na.label = "No Games Played", title = "Win Percentage by Location of Game", 
+      leaflet::addLegend("bottomright", pal = pal, values = ~win_pct, na.label = "No Games Played", title = "Win Percentage by Location of Game", 
                 labFormat = labelFormat(between = "-", suffix = "%"), opacity = .7) %>%
       addCircles(data = nfl_locations, lng = ~longitude, lat = ~latitude, weight = 4) %>%
-      addLegend("bottomleft", labels = "Locations of NFL Stadiums", colors = "blue")
+      addLegend("bottomleft", labels = "Locations of NFL Stadiums", color = "blue")
   
   })
   output$linear_model_temp = renderPlot({

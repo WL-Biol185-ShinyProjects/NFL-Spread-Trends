@@ -3,6 +3,8 @@
   library(leaflet)
   library(geojsonio)
   library(stats)
+  library(DT)
+  library(leaflegend)
 
 
   df = read.csv("tidy_df.csv")
@@ -16,29 +18,15 @@
     
       mainPanel(
         tabsetPanel(
-          tabPanel("Records Against the Spread",
-                   sidebarPanel(
-                   h3(textOutput("sidebar_text")),
-                   
-                   selectInput("sel_team",
-                               label = "Choose an NFL Team",
-                               choices = unique(df['team'])),
-                   
-                   sliderInput("sel_spread",
-                               label = "Choose a spread",
-                               min = min(df['spread']),
-                               max = max(df['spread']),
-                               value = c(-5,5))),
-                   mainPanel(
-                     h2(textOutput("win_loss")))),
           tabPanel("Winningness by Location",
                    sidebarPanel(
                      selectInput("sel_team2",
-                                label = "Choose an NFL Team",
-                                choices = unique(df['team']))),
+                                 label = "Choose an NFL Team",
+                                 choices = unique(df['team']))),
                    mainPanel(
                      h3(textOutput("main_panel_text")),
                      leafletOutput('chloropleth'))),
+          
           tabPanel("Outcome Predictor",
                    sidebarPanel(
                      selectInput("sel_team3",
@@ -62,7 +50,24 @@
                        splitLayout(cellWidths = c("50%", "50%"), plotOutput("linear_model_temp"), plotOutput("linear_model_wind"))
                    ),
                       h3(textOutput("linear_model_significance")))
-        )
+                   
+          ),
+                   tabPanel("Records Against the Spread",
+                            sidebarPanel(
+                              h3(textOutput("sidebar_text")),
+                              
+                              selectInput("sel_team",
+                                          label = "Choose an NFL Team",
+                                          choices = unique(df['team'])),
+                              
+                              sliderInput("sel_spread",
+                                          label = "Choose a spread",
+                                          min = min(df['spread']),
+                                          max = max(df['spread']),
+                                          value = c(-5,5))),
+                            mainPanel(
+                              h2(DTOutput("win_loss_df"))))
+        
       )
   )
   )
