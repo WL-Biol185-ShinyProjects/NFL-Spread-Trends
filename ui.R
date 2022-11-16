@@ -28,7 +28,9 @@
                      leafletOutput('chloropleth'))),
           
           tabPanel("Outcome Predictor",
-                   sidebarPanel(
+                   fluidRow(
+                     column(4, 
+                            wellPanel(
                      selectInput("sel_team3",
                                  label = "Choose an NFL Team",
                                  choices = unique(df['team'])),
@@ -41,36 +43,37 @@
                                  label = "Select Wind MPH",
                                  min = min(model_df['wind'], na.rm = TRUE),
                                  max = max(model_df['wind'], na.rm = TRUE),
-                                 value = 21)
-                   ),
-                   mainPanel(
-                     h2(textOutput("lm_text")),
+                                 value = 21))),
+                   column(8, 
+                          mainPanel(
+                              fluidRow(h2(textOutput("lm_text")))),
                      
-                     fluidRow(
-                       splitLayout(cellWidths = c("50%", "50%"), plotOutput("linear_model_temp"), plotOutput("linear_model_wind"))
-                   ),
-                      h3(textOutput("linear_model_significance")))
-                   
-          ),
-                   tabPanel("Records Against the Spread",
-                            sidebarPanel(
-                              h3(textOutput("sidebar_text")),
+                          fluidRow(
+                            splitLayout(cellWidths = c("50%", "50%"), plotOutput("linear_model_temp"), 
+                            plotOutput("linear_model_wind"))),
+                     
+                          fluidRow(h3(textOutput("linear_model_significance"))))
+              )),
+              tabPanel("Records Against the Spread",
+                      sidebarPanel(
+                        h3(textOutput("sidebar_text")),
                               
-                              selectInput("sel_team",
-                                          label = "Choose an NFL Team",
-                                          choices = unique(df['team'])),
+                        selectInput("sel_team",
+                                    label = "Choose an NFL Team",
+                                    choices = unique(df['team'])),
                               
-                              sliderInput("sel_spread",
-                                          label = "Choose a spread",
-                                          min = min(df['spread']),
-                                          max = max(df['spread']),
-                                          value = c(-5,5))),
-                            mainPanel(
-                              h2(DTOutput("win_loss_df"))))
+                        sliderInput("sel_spread",
+                                    label = "Choose a spread",
+                                    min = min(df['spread']),
+                                    max = max(df['spread']),
+                                    value = c(-5,5))),
+                        mainPanel(
+                                    h2(DTOutput("win_loss_df"))))
         
       )
   )
-  )
+)
+
         
  
 

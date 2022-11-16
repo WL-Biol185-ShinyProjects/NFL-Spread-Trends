@@ -224,8 +224,6 @@ model_df$temp2 = nfl_df_2000[, 14]
 model_df$wind1 = nfl_df_2000[, 15]
 model_df$wind2 = nfl_df_2000[, 15]
 
-model_df
-
 model_df_home = model_df[, c(1,6,8,10)]
 model_df_away = model_df[, c(4,7,9,11)]
 
@@ -237,17 +235,7 @@ model_df_tidy = model_df_tidy %>%
   rename("team" = "team_home",
          "difference" = "diff_home",
          "temperature" = "temp1",
-         "wind" = "wind1") 
-
-linear_model_df = filter(model_df_tidy, team == "Atlanta Falcons")
-    
-linear_model = lm(data = linear_model_df, difference ~ wind + temperature)
-  
-aaa = summary(linear_model)$coefficients[,4]
-
-
-aaa['temperature']
-aaa['wind']
+         "wind" = "wind1")
 ```
 
 ## export csv
@@ -257,6 +245,4 @@ write.csv(model_df_tidy, "model_df_tidy.csv", row.names = FALSE)
 
 ```{r pressure, echo=FALSE}
 library(d3heatmap)
-
-
 ```
