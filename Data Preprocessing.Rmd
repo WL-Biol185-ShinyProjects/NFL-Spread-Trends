@@ -8,7 +8,8 @@ output: md_document
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-library(mapview)
+library(stats)
+library(car)
 ```
 
 ##Import CSV file
@@ -201,7 +202,7 @@ map_df_tidy = map_df_tidy %>%
          "state" = "location") 
   
 map_df_tidy$win[map_df_tidy$difference > 0] = 1
-map_df_tidy$win[map_df_tidy$difference <= 0] = -1
+map_df_tidy$win[map_df_tidy$difference <= 0] = 0
 
 map_df_tidy
 ```
@@ -223,8 +224,6 @@ model_df$temp2 = nfl_df_2000[, 14]
 model_df$wind1 = nfl_df_2000[, 15]
 model_df$wind2 = nfl_df_2000[, 15]
 
-model_df
-
 model_df_home = model_df[, c(1,6,8,10)]
 model_df_away = model_df[, c(4,7,9,11)]
 
@@ -236,12 +235,14 @@ model_df_tidy = model_df_tidy %>%
   rename("team" = "team_home",
          "difference" = "diff_home",
          "temperature" = "temp1",
-         "wind" = "wind1") 
-
-model_df_tidy
+         "wind" = "wind1")
 ```
 
 ## export csv
 ```{r pressure, echo=FALSE}
 write.csv(model_df_tidy, "model_df_tidy.csv", row.names = FALSE)
+```
+
+```{r pressure, echo=FALSE}
+library(d3heatmap)
 ```
