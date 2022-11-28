@@ -65,7 +65,7 @@ function(input, output, server) {
       setView(lat = 38.5, lng = -80, zoom = 3.4) %>%
       leaflet::addLegend("bottomright", pal = pal, values = ~win_pct, na.label = "No Games Played", title = "Win Percentage by Location of Game", 
                 labFormat = labelFormat(between = "-", suffix = "%"), opacity = .7) %>%
-      addCircles(data = nfl_locations, lng = ~longitude, lat = ~latitude, weight = 4) %>%
+      addMarkers(data = nfl_locations, lng = ~longitude, lat = ~latitude, icon=iconSet) %>%
       addLegend("bottomleft", labels = "Locations of NFL Stadiums", color = "blue")
   
   })
