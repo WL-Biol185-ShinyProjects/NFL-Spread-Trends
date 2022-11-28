@@ -11,7 +11,6 @@ map_df = read.csv("map_df_tidy.csv")
 model_df = read.csv("model_df_tidy.csv")
 nfl_locations = read.csv("NFLlocations.csv")
 
-
 #Define server logic fro drop down menu
 function(input, output, server) { 
   
@@ -65,8 +64,7 @@ function(input, output, server) {
       setView(lat = 38.5, lng = -80, zoom = 3.4) %>%
       leaflet::addLegend("bottomright", pal = pal, values = ~win_pct, na.label = "No Games Played", title = "Win Percentage by Location of Game", 
                 labFormat = labelFormat(between = "-", suffix = "%"), opacity = .7) %>%
-      addMarkers(data = nfl_locations, lng = ~longitude, lat = ~latitude, icon=iconSet) %>%
-      addLegend("bottomleft", labels = "Locations of NFL Stadiums", color = "blue")
+      addMarkers(data = nfl_locations, lng = ~longitude, lat = ~latitude)
   
   })
   output$linear_model_temp = renderPlot({
