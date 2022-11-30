@@ -94,7 +94,7 @@ function(input, output, server) {
     
     ggplot(data = linear_model_df, mapping = aes(x = wind, y = difference)) + 
       geom_point(alpha = .5, size = 3, color = 'dodgerblue2') + 
-      geom_abline(intercept = coef(linear_model)["(Intercept)"], slope = coef(linear_model)["wind"], size = 2, alpha = .7) + 
+      geom_abline(intercept = coef(linear_model)["(Intercept)"], slope = coef(linear_model)["wind"], linewidth = 2, alpha = .7) + 
       xlab("Wind (MPH)") +
       ylab("Win/Loss Margin") + 
       ggtitle("Win/Loss Margin vs Wind Speed")
@@ -126,7 +126,7 @@ function(input, output, server) {
   
   output$lm_text = renderText({"Do Wind or Temperature Significantly affect Your Team's Chances of Winning a Game?"})
   
-  output$matrix = renderPlot({d3heatmap(matrix_df, labRow = matrix_df$team_home, dendrogram = "none", colors = "Blues")
+  output$matrix = renderD3heatmap({d3heatmap(matrix_df, labRow = matrix_df$team_home, dendrogram = "none", colors = "Blues")
   })
     
 

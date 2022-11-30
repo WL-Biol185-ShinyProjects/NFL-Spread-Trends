@@ -72,7 +72,7 @@
           
           tabPanel("Score Different HeatMap",
                    mainPanel(
-                     plotOutput("matrix")
+                     d3heatmapOutput("matrix")
                    ))
         
       )
