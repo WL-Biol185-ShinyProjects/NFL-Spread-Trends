@@ -5,11 +5,14 @@ library(geojsonio)
 library(stats)
 library(DT)
 library(leaflegend)
+library(d3heatmap)
+library(paletteer)
 
 df = read.csv("tidy_df.csv")
 map_df = read.csv("map_df_tidy.csv")
 model_df = read.csv("model_df_tidy.csv")
 nfl_locations = read.csv("NFLlocations.csv")
+matrix_df = read.csv("matrix_df.csv")
 
 #Define server logic fro drop down menu
 function(input, output, server) { 
@@ -122,4 +125,9 @@ function(input, output, server) {
   })
   
   output$lm_text = renderText({"Do Wind or Temperature Significantly affect Your Team's Chances of Winning a Game?"})
+  
+  output$matrix = renderPlot({d3heatmap(matrix_df, labRow = matrix_df$team_home, dendrogram = "none", colors = "Blues")
+  })
+    
+
 }

@@ -5,6 +5,8 @@
   library(stats)
   library(DT)
   library(leaflegend)
+  library(d3heatmap)
+  library(paletteer)
 
 
   df = read.csv("tidy_df.csv")
@@ -52,7 +54,7 @@
                      
                           h3(textOutput("linear_model_significance")))
               ),
-              tabPanel("Records Against the Spread",
+            tabPanel("Records Against the Spread",
                       sidebarPanel(
                         h3(textOutput("sidebar_text")),
                               
@@ -66,7 +68,12 @@
                                     max = max(df['spread']),
                                     value = c(-5,5))),
                         mainPanel(
-                                    h2(DTOutput("win_loss_df"))))
+                                    h2(DTOutput("win_loss_df")))),
+          
+          tabPanel("Score Different HeatMap",
+                   mainPanel(
+                     plotOutput("matrix")
+                   ))
         
       )
   )

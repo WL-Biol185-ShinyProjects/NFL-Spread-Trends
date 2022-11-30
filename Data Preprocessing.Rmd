@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(stats)
 library(leaflet)
+library(d3heatmap)
 ```
 
 ##Import CSV file
@@ -101,7 +102,22 @@ spread_df$spread_away[spread_df$team_home == spread_df$team_favorite_id] = sprea
 
 spread_df
 ```
+#Create Matrix for Heatmap
+```{r pressure, echo=FALSE}
+new_spreads = spread_df
 
+new_spreads$score_diff = spread_df$score_home - spread_df$score_away
+
+new_spreads_selected = subset(new_spreads, select = -c(score_home,score_away,team_favorite_id, spread_favorite, diff_home, diff_away, spread_home, spread_away))
+
+matrix_df = new_spreads %>% 
+  group_by(team_home, team_away) %>% 
+  summarise(m = mean(score_diff))
+
+matrix_df = spread(matrix_df,team_away,m)
+
+write.csv(matrix_df, "matrix_df.csv", row.names = FALSE)
+```
 
 ## Select only important columns so that we can use rbind 
 ```{r pressure, echo=FALSE}
