@@ -6,7 +6,6 @@
   library(DT)
   library(leaflegend)
   library(d3heatmap)
-  library(paletteer)
 
 
   df = read.csv("tidy_df.csv")

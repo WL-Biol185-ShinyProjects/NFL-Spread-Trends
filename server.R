@@ -6,7 +6,6 @@ library(stats)
 library(DT)
 library(leaflegend)
 library(d3heatmap)
-library(paletteer)
 
 df = read.csv("tidy_df.csv")
 map_df = read.csv("map_df_tidy.csv")
