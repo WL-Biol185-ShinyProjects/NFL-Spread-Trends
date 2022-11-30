@@ -75,7 +75,7 @@ function(input, output, server) {
     
     ggplot(data = linear_model_df, mapping = aes(x = temperature, y = difference)) + 
       geom_point(alpha = .5, size = 3, color = 'dodgerblue2') + 
-      geom_abline(intercept = coef(linear_model)["(Intercept)"], slope = coef(linear_model)["temperature"], size = 2, alpha = .7) +
+      geom_abline(intercept = coef(linear_model)["(Intercept)"], slope = coef(linear_model)["temperature"], linewidth = 2, alpha = .7) +
       xlab("Tempature (Degrees F)") +
       ylab("Win/Loss Margin") + 
       ggtitle("Win/Loss Margin vs Temperature")
