@@ -117,6 +117,8 @@ matrix_df = new_spreads %>%
 matrix_df = spread(matrix_df,team_away,m)
 
 write.csv(matrix_df, "matrix_df.csv", row.names = FALSE)
+
+d3heatmap(matrix_df, labRow = matrix_df$team_home, dendrogram = "none", colors = "Blues")
 ```
 
 ## Select only important columns so that we can use rbind 
