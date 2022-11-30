@@ -67,7 +67,7 @@ function(input, output, server) {
       leaflet::addLegend("bottomright", pal = pal, values = ~win_pct, na.label = "No Games Played", title = "Win Percentage", 
                 labFormat = labelFormat(between = "-", suffix = "%"), opacity = .7) %>%
       addCircles(data = nfl_locations, lng = ~longitude, lat = ~latitude, weight = 4) %>%
-      addLegend("bottomleft", labels = "Locations of NFL Stadiums", color = "blue")
+      leaflet::addLegend("bottomleft", labels = "Locations of NFL Stadiums", color = "blue")
   
   })
   output$linear_model_temp = renderPlot({
