@@ -5,15 +5,7 @@ library(geojsonio)
 library(stats)
 library(DT)
 library(d3heatmap)
-<<<<<<< HEAD
 library(leaflegend)
-=======
-library(sf)
-library(sp)
-library(mapview)
-library(readr)
-library(raster)
->>>>>>> bcd961fe10e9cb2ccff37fd973dcbba318c3dc69
 
 df = read.csv("tidy_df.csv")
 map_df = read.csv("map_df_tidy.csv")
