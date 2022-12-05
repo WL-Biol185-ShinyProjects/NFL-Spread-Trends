@@ -116,6 +116,7 @@ matrix_df = new_spreads %>%
 
 matrix_df = spread(matrix_df,team_away,m)
 
+matrix_df
 write.csv(matrix_df, "matrix_df.csv", row.names = FALSE)
 ```
 

@@ -72,6 +72,7 @@
                                     h2(DTOutput("win_loss_df")))),
           
           tabPanel("Score Difference HeatMap",
+                   sidebarPanel("hahahah"),
                    mainPanel(
                      d3heatmapOutput("matrix")
                    ))
