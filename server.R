@@ -5,12 +5,20 @@ library(geojsonio)
 library(stats)
 library(DT)
 library(d3heatmap)
+<<<<<<< HEAD
 library(leaflegend)
+=======
+library(sf)
+library(sp)
+library(mapview)
+library(readr)
+library(raster)
+>>>>>>> bcd961fe10e9cb2ccff37fd973dcbba318c3dc69
 
 df = read.csv("tidy_df.csv")
 map_df = read.csv("map_df_tidy.csv")
 model_df = read.csv("model_df_tidy.csv")
-nfl_locations = read.csv("NFLlocations.csv")
+NFL_locations = read.csv("NFLlocations.csv")
 matrix_df = read.csv("matrix_df.csv")
 logistic_model_df = read.csv("logistic_model_df.csv")
 
@@ -64,8 +72,8 @@ function(input, output, server) {
                   label = ~win_pct,
                   fillOpacity = .7) %>%
       
-      setView(lat = 38.5, lng = -80, zoom = 3.4) %>%
-      addCircles(data = nfl_locations, lng = ~longitude, lat = ~latitude, weight = 4) %>%
+      setView(lat = 38.5, lng = -100, zoom = 3.5) %>%
+      addCircles(data = NFL_locations, lng = ~longitude, lat = ~latitude, weight = 4, radius= 5) %>%
       leaflet::addLegend(position = "bottomright", pal = pal, values = ~win_pct, na.label = "No Games Played", title = "Win Percentage", 
                 labFormat = labelFormat(between = "-", suffix = "%"), opacity = .7) %>%
       leaflet::addLegend(position = "bottomleft", color = "blue", labels = "Locations of NFL Stadiums")
