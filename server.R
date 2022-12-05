@@ -4,7 +4,6 @@ library(leaflet)
 library(geojsonio)
 library(stats)
 library(DT)
-library(leaflegend)
 library(d3heatmap)
 
 df = read.csv("tidy_df.csv")
@@ -64,10 +63,10 @@ function(input, output, server) {
                   fillOpacity = .7) %>%
       
       setView(lat = 38.5, lng = -80, zoom = 3.4) %>%
-      leaflet::addLegend("bottomright", pal = pal, values = ~win_pct, na.label = "No Games Played", title = "Win Percentage", 
-                labFormat = labelFormat(between = "-", suffix = "%"), opacity = .7) %>%
       addCircles(data = nfl_locations, lng = ~longitude, lat = ~latitude, weight = 4) %>%
-      leaflet::addLegend("bottomleft", labels = "Locations of NFL Stadiums", color = "blue")
+      leaflet::addLegend(position = "bottomright", pal = pal, values = ~win_pct, na.label = "No Games Played", title = "Win Percentage", 
+                labFormat = labelFormat(between = "-", suffix = "%"), opacity = .7) #%>%
+      #leaflet::addLegend(position = "bottomleft", labels = "Locations of NFL Stadiums", color = "blue")
   
   })
   output$linear_model_temp = renderPlot({
