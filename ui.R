@@ -4,13 +4,14 @@
   library(geojsonio)
   library(stats)
   library(DT)
-  library(leaflegend)
   library(d3heatmap)
+  library(leaflegend)
 
 
   df = read.csv("tidy_df.csv")
   map_df = read.csv("map_df_tidy.csv")
   model_df = read.csv("model_df_tidy.csv")
+  logistic_model_df = read.csv("logistic_model_df.csv")
  
   
 
@@ -43,7 +44,8 @@
                                  label = "Select Wind MPH",
                                  min = min(model_df['wind'], na.rm = TRUE),
                                  max = max(model_df['wind'], na.rm = TRUE),
-                                 value = 21)),
+                                 value = 21),
+                     textOutput("logistic_regression")),
                       mainPanel(
                             h2(textOutput("lm_text")),
                      
