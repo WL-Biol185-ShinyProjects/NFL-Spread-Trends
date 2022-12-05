@@ -9,7 +9,7 @@ library(d3heatmap)
 df = read.csv("tidy_df.csv")
 map_df = read.csv("map_df_tidy.csv")
 model_df = read.csv("model_df_tidy.csv")
-nfl_locations = read.csv("NFLlocations.csv")
+NFL_locations = read.csv("NFLlocations.csv")
 matrix_df = read.csv("matrix_df.csv")
 
 #Define server logic fro drop down menu
@@ -63,7 +63,7 @@ function(input, output, server) {
                   fillOpacity = .7) %>%
       
       setView(lat = 38.5, lng = -80, zoom = 3.4) %>%
-      addCircles(data = nfl_locations, lng = ~longitude, lat = ~latitude, weight = 4) %>%
+      addCircles(data = NFL_locations, lng = ~longitude, lat = ~latitude, weight = 4) %>%
       leaflet::addLegend(position = "bottomright", pal = pal, values = ~win_pct, na.label = "No Games Played", title = "Win Percentage", 
                 labFormat = labelFormat(between = "-", suffix = "%"), opacity = .7) %>%
       leaflet::addLegend(position = "bottomleft", labels = "Locations of NFL Stadiums", color = "blue")
