@@ -24,6 +24,9 @@
      
       mainPanel(
         tabsetPanel(
+          
+          tabPanel("Welcome",
+                   DTOutput("welcome")),
           tabPanel("Winningness by Location",
                    sidebarPanel(
                      selectInput("sel_team2",
