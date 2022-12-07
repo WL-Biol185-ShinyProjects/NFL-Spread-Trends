@@ -158,7 +158,7 @@ function(input, output, server) {
     example_df
   },options = list(dom = 't'))
   
-  output$welcome_tab_text = renderText({"A spread bet is a way that oddsmakers can level the playing field between two teams that are unequally matched. It is a predicted margin of victory for the favored team."})
+  output$welcome_tab_text = renderText({"A spread bet is a way that oddsmakers can level the playing field between two teams that are unequally matched. The point spread is the margin of expected victory by the favorite team. If the favorite wins by more than the expected margin, they are said to 'cover the spread.' If the underdog loses by less than the expected margin or wins outright, then the underdog covers the spread. Our app looks at how NFL teams perform in comparison to the spread prediction."})
     
 
 }
