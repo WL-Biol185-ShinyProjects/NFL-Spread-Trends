@@ -264,7 +264,7 @@ write.csv(model_df_tidy, "model_df_tidy.csv", row.names = FALSE)
 ```{r pressure, echo=FALSE}
 logistic_model_df = model_df_tidy
 
-logistic_model_df$win[logistic_model_df$difference >= 0] = 1 
+logistic_model_df$win[logistic_model_df$difference >= 0] = 1
 logistic_model_df$win[logistic_model_df$difference < 0] = 0
 
 write.csv(logistic_model_df, "logistic_model_df.csv", row.names = FALSE)
