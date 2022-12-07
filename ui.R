@@ -26,8 +26,9 @@
         tabsetPanel(
           
           tabPanel("Welcome",
-                   textOutput("welcome_tab_text"),
-                   DTOutput('welcome_tab')),
+                   h4(textOutput("welcome_tab_text")),
+                   DTOutput('welcome_tab'),
+                   h4(textOutput("welcome_tab_text2"))),
           tabPanel("Winningness by Location",
                    sidebarPanel(
                      selectInput("sel_team2",
