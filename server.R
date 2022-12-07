@@ -5,17 +5,14 @@ library(geojsonio)
 library(stats)
 library(DT)
 library(d3heatmap)
-library(sf)
-library(sp)
-library(mapview)
-library(readr)
-library(raster)
+library(leaflegend)
 
 df = read.csv("tidy_df.csv")
 map_df = read.csv("map_df_tidy.csv")
 model_df = read.csv("model_df_tidy.csv")
 NFL_locations = read.csv("NFLlocations.csv")
 matrix_df = read.csv("matrix_df.csv")
+logistic_model_df = read.csv("logistic_model_df.csv")
 
 #Define server logic fro drop down menu
 function(input, output, server) { 
@@ -71,7 +68,7 @@ function(input, output, server) {
       addCircles(data = NFL_locations, lng = ~longitude, lat = ~latitude, weight = 4, radius= 5) %>%
       leaflet::addLegend(position = "bottomright", pal = pal, values = ~win_pct, na.label = "No Games Played", title = "Win Percentage", 
                 labFormat = labelFormat(between = "-", suffix = "%"), opacity = .7) %>%
-      leaflet::addLegend(position = "bottomleft", labels = "Locations of NFL Stadiums", color = "blue")
+      leaflet::addLegend(position = "bottomleft", color = "blue", labels = "Locations of NFL Stadiums")
   
   })
   output$linear_model_temp = renderPlot({
@@ -127,9 +124,31 @@ function(input, output, server) {
   
   })
   
+  output$logistic_regression = renderText({
+  
+    logistic_model = filter(logistic_model_df, team == input$sel_team3)
+    
+    logistic_model = na.omit(logistic_model)
+    mylogit = glm(win ~ temperature + wind, data = logistic_model, family = "binomial")
+    
+    newdata = data.frame(temperature = input$input_temp, wind = input$input_wind)
+    probabilities = mylogit %>% predict(newdata, type = "response")
+    
+    predicted.classes = ifelse(probabilities > 0.5, "Win", "Loss")
+    
+    if(summary(mylogit)$coefficients[, 4]["temperature"] <0.05 | summary(mylogit)$coefficients[, 4]["wind"] <0.05){
+      paste("The model predicts a ", predicted.classes, " under these conditions.")
+    } else{
+      paste("The model cannot predict an outcome due to the insignificance of both temperature and wind.")
+    }
+    
+    
+    
+  })
+  
   output$lm_text = renderText({"Do Wind or Temperature Significantly affect Your Team's Chances of Winning a Game?"})
   
-  output$matrix = renderD3heatmap({d3heatmap(matrix_df, labRow = matrix_df$team_home, dendrogram = "none", colors = "Blues")
+  output$matrix = renderD3heatmap({d3heatmap(matrix_df, labRow = matrix_df$team_home, dendrogram = "none", col = "RdYlGn", xlab = "Away Team", ylab = "Home Team", key = TRUE)
   })
     
 
