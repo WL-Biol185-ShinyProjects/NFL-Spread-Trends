@@ -16,7 +16,7 @@
   model_df = read.csv("model_df_tidy.csv")
   logistic_model_df = read.csv("logistic_model_df.csv")
  
-  
+ 
 
   fluidPage(
       
@@ -26,7 +26,8 @@
         tabsetPanel(
           
           tabPanel("Welcome",
-                   DTOutput("welcome")),
+                   textOutput("welcome_tab_text"),
+                   DTOutput('welcome_tab')),
           tabPanel("Winningness by Location",
                    sidebarPanel(
                      selectInput("sel_team2",

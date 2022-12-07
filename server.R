@@ -148,10 +148,17 @@ function(input, output, server) {
   
   output$lm_text = renderText({"Do Wind or Temperature Significantly affect Your Team's Chances of Winning a Game?"})
   
-  output$matrix = renderD3heatmap({d3heatmap(matrix_df, labRow = matrix_df$team_home, dendrogram = "none", col = "RdYlGn", xlab = "Away Team", ylab = "Home Team", key = TRUE, width = 5000, height = 5000, key.location = "br", cexCol = .5)
+  output$matrix = renderD3heatmap({d3heatmap(matrix_df, labRow = matrix_df$team_home, dendrogram = "none", col = "RdYlGn", xlab = "Away Team", ylab = "Home Team", key = TRUE, width = 5000, height = 5000, key.location = "br", cexCol = .5)})
     
-  output$welcome = 
-  })
+  output$welcome_tab = renderDT({
+    Team = c("Philadelphia Eagles", "Houston Texans")
+    Spread = c("-14.5", "+14.5")
+    Line = c("-110", "-110")
+    example_df = data.frame(Team, Spread, Line)
+    example_df
+  },options = list(dom = 't'))
+  
+  output$welcome_tab_text = renderText({"A spread bet is a way that oddsmakers can level the playing field between two teams that are unequally matched. It is a predicted margin of victory for the favored team."})
     
 
 }
