@@ -6,6 +6,11 @@
   library(DT)
   library(leaflegend)
   library(d3heatmap)
+  library(sf)
+  library(sp)
+  library(mapview)
+  library(readr)
+  library(raster)
 
 
   df = read.csv("tidy_df.csv")
