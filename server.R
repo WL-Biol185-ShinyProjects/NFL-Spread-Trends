@@ -148,7 +148,7 @@ function(input, output, server) {
   
   output$lm_text = renderText({"Do Wind or Temperature Significantly affect Your Team's Chances of Winning a Game?"})
   
-  output$matrix = renderD3heatmap({d3heatmap(matrix_df, labRow = matrix_df$team_home, dendrogram = "none", col = "RdYlGn", xlab = "Away Team", ylab = "Home Team", key = TRUE)
+  output$matrix = renderD3heatmap({d3heatmap(matrix_df, labRow = matrix_df$team_home, dendrogram = "none", col = "RdYlGn", xlab = "Away Team", ylab = "Home Team", key = TRUE, width = 5000, height = 5000, key.location = "br", cexCol = .5)
   })
     
 
