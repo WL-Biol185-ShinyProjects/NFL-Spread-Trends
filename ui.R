@@ -4,18 +4,17 @@
   library(geojsonio)
   library(stats)
   library(DT)
-  library(leaflegend)
   library(d3heatmap)
-  library(sf)
-  library(sp)
-  library(mapview)
-  library(readr)
-  library(raster)
+
+
+  library(leaflegend)
+
 
 
   df = read.csv("tidy_df.csv")
   map_df = read.csv("map_df_tidy.csv")
   model_df = read.csv("model_df_tidy.csv")
+  logistic_model_df = read.csv("logistic_model_df.csv")
  
   
 
@@ -48,7 +47,8 @@
                                  label = "Select Wind MPH",
                                  min = min(model_df['wind'], na.rm = TRUE),
                                  max = max(model_df['wind'], na.rm = TRUE),
-                                 value = 21)),
+                                 value = 21),
+                     textOutput("logistic_regression")),
                       mainPanel(
                             h2(textOutput("lm_text")),
                      
@@ -75,6 +75,7 @@
                                     h2(DTOutput("win_loss_df")))),
           
           tabPanel("Score Difference HeatMap",
+                   sidebarPanel("This heatmap visualizes the average difference in score between the home and away team. A positive value represents a home team win, while a negative value represents an away team win. The magnitude of the value is the difference between the winning and losing team."),
                    mainPanel(
                      d3heatmapOutput("matrix")
                    ))
