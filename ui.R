@@ -24,6 +24,9 @@
      
       mainPanel(
         tabsetPanel(
+          
+          tabPanel("Welcome",
+                   DTOutput("welcome")),
           tabPanel("Winningness by Location",
                    sidebarPanel(
                      selectInput("sel_team2",
@@ -76,8 +79,8 @@
           
           tabPanel("Score Difference HeatMap",
                    sidebarPanel("This heatmap visualizes the average difference in score between the home and away team. A positive value represents a home team win, while a negative value represents an away team win. The magnitude of the value is the difference between the winning and losing team."),
-                   mainPanel(
-                     d3heatmapOutput("matrix")
+                     mainPanel(
+                       d3heatmapOutput("matrix")
                    ))
         
       )
