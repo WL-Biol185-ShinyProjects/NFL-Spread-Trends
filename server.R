@@ -56,19 +56,18 @@ function(input, output, server) {
     
     pal = colorBin("RdYlGn", domain = geo@data$win_pct)
     
-    leaflet(geo) %>%
+    graph = leaflet(geo) %>%
       addPolygons(fillColor = ~pal(win_pct), 
                   weight = 1, 
                   color = "white", 
                   highlightOptions = highlightOptions(weight = 5),
                   label = ~win_pct,
-                  fillOpacity = .7) %>%
-      
+                  fillOpacity = .7)%>%
       setView(lat = 38.5, lng = -100, zoom = 3.5) %>%
       addCircles(data = NFL_locations, lng = ~longitude, lat = ~latitude, weight = 4, radius= 5) %>%
-      leaflet::addLegend(position = "bottomright", pal = pal, values = ~win_pct, na.label = "No Games Played", title = "Win Percentage", 
+      addLegend(position = "bottomright", pal = pal, values = ~win_pct, na.label = "No Games Played", title = "Win Percentage", 
                 labFormat = labelFormat(between = "-", suffix = "%"), opacity = .7) %>%
-      leaflet::addLegend(position = "bottomleft", color = "blue", labels = "Locations of NFL Stadiums")
+      addLegend(position = "bottomleft", color = "blue", labels = "Locations of NFL Stadiums")
   
   })
   output$linear_model_temp = renderPlot({
