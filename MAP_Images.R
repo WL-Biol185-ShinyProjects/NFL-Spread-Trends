@@ -1,7 +1,14 @@
 #CallLibraries
 library(sp)
+library(sf)
+library(mapview)
 library(raster)
 library(leaflet)
+library(readr)
+#Read Dataframe
+
+NFLlocations <- read.csv("NFLlocations.csv")
+
 #RenderMap
 leaflet() %>% 
   addTiles() %>%
@@ -50,3 +57,10 @@ leaflet() %>%
              lat = NFLlocations$latitude,
              icon = iconSet) %>% 
   addProviderTiles(provider = "Stamen.watercolor")
+
+setView(lat = 38.5, lng = -100, zoom = 3.5) %>%
+  addCircles(data = NFLlocations, lng = ~longitude, lat = ~latitude, weight = 4) %>%
+  leaflet::addLegend(position = "bottomright", pal = pal, values = ~win_pct, na.label = "No Games Played", title = "Win Percentage", 
+                     labFormat = labelFormat(between = "-", suffix = "%"), opacity = .7) %>%
+  leaflet::addLegend(position = "bottomleft", labels = "Locations of NFL Stadiums", color = "blue")
+
