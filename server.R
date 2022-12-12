@@ -56,7 +56,7 @@ function(input, output, server) {
     
     pal = colorBin("RdYlGn", domain = geo@data$win_pct)
     
-    graph = leaflet(geo) %>%
+    leaflet(geo) %>%
       addPolygons(fillColor = ~pal(win_pct), 
                   weight = 1, 
                   color = "white", 
