@@ -1,10 +1,10 @@
 library(shiny)
 library(tidyverse)
+library(d3heatmap)
 library(leaflet)
 library(geojsonio)
 library(stats)
 library(DT)
-library(d3heatmap)
 library(leaflegend)
 
 df = read.csv("tidy_df.csv")
@@ -20,6 +20,7 @@ function(input, output, server) {
   output$sidebar_text = renderText({ "How good is your team against the spread since 2000?" })
   output$main_panel_text = renderText({"Win Percentage by Location of NFL Game"})
   
+  output$matrix = renderD3heatmap({d3heatmap(matrix_df, labRow = matrix_df$team_home, dendrogram = "none", col = "RdYlGn", xlab = "Away Team", ylab = "Home Team", key = TRUE, width = 5000, height = 5000, key.location = "tl",key.title = "Mean Score Difference", cexCol = .5)})
   
   output$win_loss_df = renderDT({
     
@@ -55,6 +56,7 @@ function(input, output, server) {
     geo@data = left_join(geo@data, map_df, by = c("NAME" = "state"))
     
     pal = colorBin("RdYlGn", domain = geo@data$win_pct)
+    pal2 = colorFactor("blue", domain = "Locations of NFL Stadiums")
     
     leaflet(geo) %>%
       addPolygons(fillColor = ~pal(win_pct), 
@@ -63,12 +65,13 @@ function(input, output, server) {
                   highlightOptions = highlightOptions(weight = 5),
                   label = ~win_pct,
                   fillOpacity = .7)%>%
-      setView(lat = 38.5, lng = -100, zoom = 3.5) %>%
+      setView(lat = 38.5, lng = -100, zoom = 3) %>%
       addCircles(data = NFL_locations, lng = ~longitude, lat = ~latitude, weight = 4, radius= 5) %>%
-      addLegend(position = "bottomright", pal = pal, values = ~win_pct, na.label = "No Games Played", title = "Win Percentage", 
-                labFormat = labelFormat(between = "-", suffix = "%"), opacity = .7) %>%
-      addLegend(position = "bottomleft", color = "blue", labels = "Locations of NFL Stadiums")
-  
+      addLegend(className = "leaflet legend", pal = pal, values = ~win_pct, na.label = "No Games Played", title = "Win Percentage",
+                   labFormat = labelFormat(between = "-", suffix = "%"), opacity = .7) %>%
+      addLegendFactor(position = "bottomleft", pal = pal2, values = "Locations of NFL Stadiums", shape = 'circle', opacity = .5)
+    
+    
   })
   output$linear_model_temp = renderPlot({
     
@@ -147,7 +150,6 @@ function(input, output, server) {
   
   output$lm_text = renderText({"Do Wind or Temperature Significantly affect Your Team's Chances of Winning a Game?"})
   
-  output$matrix = renderD3heatmap({d3heatmap(matrix_df, labRow = matrix_df$team_home, dendrogram = "none", col = "RdYlGn", xlab = "Away Team", ylab = "Home Team", key = TRUE, width = 5000, height = 5000, key.location = "br", cexCol = .5)})
     
   output$welcome_tab = renderDT({
     Team = c("Philadelphia Eagles", "Houston Texans")

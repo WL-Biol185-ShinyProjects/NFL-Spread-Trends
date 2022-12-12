@@ -24,11 +24,17 @@
      
       mainPanel(
         tabsetPanel(
-          
           tabPanel("Welcome",
                    h4(textOutput("welcome_tab_text")),
                    DTOutput('welcome_tab'),
                    h4(textOutput("welcome_tab_text2"))),
+          
+          tabPanel("Score Difference HeatMap",
+                   sidebarPanel("This heatmap visualizes the average difference in score between the home and away team. A positive value represents a home team win, while a negative value represents an away team win. The magnitude of the value is the difference between the winning and losing team."),
+                   mainPanel(
+                     d3heatmapOutput("matrix")
+                   )),
+          
           tabPanel("Winningness by Location",
                    sidebarPanel(
                      selectInput("sel_team2",
@@ -41,7 +47,7 @@
           tabPanel("Outcome Predictor",
                     sidebarPanel(
                      selectInput("sel_team3",
-                                 label = "Choose an NFL Team",
+                                 label = "Choose an NFL team to see how they perform in each state.",
                                  choices = unique(df['team'])),
                      sliderInput("input_temp",
                                  label = "Select the Game Temperature (Degrees F)",
@@ -77,13 +83,8 @@
                                     max = max(df['spread']),
                                     value = c(-5,5))),
                         mainPanel(
-                                    h2(DTOutput("win_loss_df")))),
+                                    h2(DTOutput("win_loss_df"))))
           
-          tabPanel("Score Difference HeatMap",
-                   sidebarPanel("This heatmap visualizes the average difference in score between the home and away team. A positive value represents a home team win, while a negative value represents an away team win. The magnitude of the value is the difference between the winning and losing team."),
-                     mainPanel(
-                       d3heatmapOutput("matrix")
-                   ))
         
       )
   )
