@@ -25,6 +25,8 @@
       mainPanel(
         tabsetPanel(
           tabPanel("Welcome",
+                   h4(textOutput("welcome_tab_text1")),
+                   h2(textOutput("welcome_tab_text3")),
                    h4(textOutput("welcome_tab_text")),
                    DTOutput('welcome_tab'),
                    h4(textOutput("welcome_tab_text2"))),

@@ -161,5 +161,6 @@ function(input, output, server) {
   
   output$welcome_tab_text = renderText({"A spread bet is a way that oddsmakers can level the playing field between two teams that are unequally matched. The point spread is the margin of expected victory by the favorite team. If the favorite wins by more than the expected margin, they are said to 'cover the spread.' If the underdog loses by less than the expected margin or wins outright, then the underdog covers the spread. Our app looks at how NFL teams perform in comparison to the spread prediction."})
   output$welcome_tab_text2 = renderText({"This example shows a game between the Philadelphia Eagles and the Houston Texans. In this example, the Philadelphia Eagles are the favorite, indicated by the (-) symbol next to the spread number. The Houston Texans are the underdog, indicated by the (+) sign. If the Philadelphia Eagles win by greater than 14.5 points, they are said to have covered the spread. If the Houston Texans lose by less than 14.5 points, or win outright, the Texans cover the spread."})
-
+  output$welcome_tab_text1 = renderText({"Welcome to our app. In it, you will find different methods of analysis of spread and winningness data in the NFL since 2000. "})
+  output$welcome_tab_text3 = renderText({"What is a spread?"})
 }
